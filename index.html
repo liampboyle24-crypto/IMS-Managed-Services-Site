@@ -865,11 +865,115 @@
   .cta__actions { display: flex; gap: 16px; align-items: center; margin-top: 38px; flex-wrap: wrap; justify-content: center; }
   .cta__footer { font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; color: var(--slate); margin-top: 56px; text-transform: uppercase; }
 
+  .console-stages { display: flex; gap: 8px; margin-bottom: 18px; flex-wrap: wrap; }
+  .console-stage {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    font-weight: 850;
+    color: var(--slate);
+    padding: 7px 11px;
+    border-radius: 999px;
+    border: 1px solid var(--line-light);
+    background: rgba(255, 255, 255, .5);
+    animation: stagePulse 8s ease-in-out infinite;
+  }
+  .console-stage:nth-child(1) { animation-delay: 0s; }
+  .console-stage:nth-child(2) { animation-delay: -2s; }
+  .console-stage:nth-child(3) { animation-delay: -4s; }
+  .console-stage:nth-child(4) { animation-delay: -6s; }
+  @keyframes stagePulse {
+    0%, 76%, 100% { color: var(--slate); background: rgba(255, 255, 255, .5); border-color: var(--line-light); }
+    8%, 18% { color: var(--white); background: var(--teal); border-color: var(--teal); }
+  }
+
+  .insight-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 56px; }
+  .insight-card {
+    padding: 28px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--line-light);
+    background: rgba(255, 255, 255, .68);
+    box-shadow: var(--shadow-soft);
+  }
+  .insight-card__figure { font-family: var(--font-serif); font-size: clamp(36px, 4vw, 52px); line-height: 1; color: var(--teal); }
+  .insight-card__label { font-weight: 800; margin-top: 14px; line-height: 1.4; }
+  .insight-card__desc { color: var(--slate); font-size: 14px; line-height: 1.6; margin-top: 10px; }
+  .insight-card--text { display: flex; align-items: center; background: var(--navy); color: var(--cream); border-color: transparent; }
+  .insight-card__quote { font-family: var(--font-serif); font-size: clamp(19px, 2vw, 24px); line-height: 1.35; }
+
+  .compare-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 48px; }
+  .compare-col {
+    padding: 28px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--line-dark);
+  }
+  .compare-col--before { background: rgba(255, 255, 255, .03); }
+  .compare-col--after { background: rgba(113, 201, 242, .08); border-color: rgba(113, 201, 242, .3); }
+  .compare-col__label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    font-weight: 850;
+    color: var(--muted);
+  }
+  .compare-col--after .compare-col__label { color: var(--teal-2); }
+  .compare-col__list { list-style: none; margin-top: 18px; display: grid; gap: 14px; }
+  .compare-col__list li { position: relative; padding-left: 20px; color: #c2cedb; font-size: 14px; line-height: 1.55; }
+  .compare-col__list li::before { content: ''; position: absolute; left: 0; top: .5em; width: 7px; height: 7px; border-radius: 50%; background: var(--muted); }
+  .compare-col--after .compare-col__list li::before { background: var(--teal-2); }
+
+  .rack-visual { justify-self: end; width: min(100%, 180px); opacity: .92; }
+  .rack-visual svg { width: 100%; height: auto; }
+
+  .bento-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-top: 52px; }
+  .bento-card {
+    padding: 22px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--line-dark);
+    background: rgba(255, 255, 255, .045);
+  }
+  .bento-card__problem { font-family: var(--font-mono); font-size: 12px; letter-spacing: .05em; text-transform: uppercase; font-weight: 800; color: var(--cream); }
+  .bento-card__arrow { color: var(--teal-2); font-size: 14px; margin: 10px 0; }
+  .bento-card__response { color: #c2cedb; font-size: 13.5px; line-height: 1.6; }
+
+  .lever-list { display: grid; gap: 22px; margin-top: 32px; max-width: 560px; }
+  .lever-item { padding-top: 18px; border-top: 1px solid var(--line-light); }
+  .lever-item:first-child { border-top: none; padding-top: 0; }
+  .lever-item__title { font-weight: 850; color: var(--ink); }
+  .lever-item__desc { color: var(--slate); font-size: 15px; line-height: 1.65; margin-top: 8px; }
+
+  .collab-visual { width: 100%; }
+  .collab-visual svg { width: 100%; height: auto; }
+
+  .proof-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+  .cta__steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin: 36px auto 0; max-width: 760px; text-align: left; }
+  .cta__step { display: flex; align-items: flex-start; gap: 12px; }
+  .cta__step-num {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 850;
+    color: var(--teal);
+    border: 1px solid var(--line-light);
+    border-radius: 50%;
+    width: 26px;
+    height: 26px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+  }
+  .cta__step span:last-child { color: var(--slate); font-size: 14px; line-height: 1.5; }
+
   @media (max-width: 1100px) {
     .site-nav__links { display: none; }
     .pillar-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .grid-2, .operator-panel, .loop-panel, .section-intro--split { grid-template-columns: 1fr; }
     .hero-card { max-width: 650px; }
+    .insight-grid, .compare-grid, .bento-grid, .proof-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .rack-visual { justify-self: start; margin-top: 24px; width: min(100%, 140px); }
+    .collab-visual { max-width: 420px; margin: 40px auto 0; }
   }
   @media (max-width: 760px) {
     .site-nav { top: 10px; width: calc(100% - 20px); border-radius: 22px; }
@@ -893,6 +997,8 @@
     .loop-diagram { --size: min(92vw, 420px); }
     .loop-node { min-width: 96px; }
     .loop-node .label { font-size: 10px; padding: 7px 8px; }
+    .insight-grid, .compare-grid, .bento-grid, .proof-grid { grid-template-columns: 1fr; }
+    .cta__steps { grid-template-columns: 1fr; text-align: left; }
   }
   @media (max-width: 430px) {
     .site-nav__logo { width: 64px; }
@@ -941,10 +1047,15 @@
       <div class="credential-strip reveal" data-delay="4" aria-label="IMS credentials">
         <span>2025 Integrator of the Year</span>
         <span>ISO/IEC 27001:2022 Certified</span>
-        <span>30+ Years</span>
       </div>
     </div>
     <aside class="hero-card reveal" data-delay="4" aria-label="Managed services operating loop summary">
+      <div class="console-stages" aria-hidden="true">
+        <span class="console-stage">Monitor</span>
+        <span class="console-stage">Detect</span>
+        <span class="console-stage">Resolve</span>
+        <span class="console-stage">Report</span>
+      </div>
       <p class="hero-card__label">Operating model</p>
       <h2 class="hero-card__title">From installed rooms to accountable performance.</h2>
       <ul class="hero-card__list">
@@ -978,6 +1089,34 @@
     <p class="closing-line reveal">None of this shows up on the original quote. All of it shows up in your budget, your IT team’s time, and the room’s reputation.</p>
   </div>
 </section>
+<section id="reliability" class="section section--cream insight" data-section="Why It Matters">
+  <div class="container">
+    <div class="section-intro section-intro--split">
+      <div>
+        <p class="eyebrow reveal">Why It Matters</p>
+        <h2 class="headline headline--section reveal" data-delay="1">Downtime Is Never Just a Screen Problem.</h2>
+        <p class="subhead reveal" data-delay="2">When a room fails, the cost shows up everywhere except the AV line item.</p>
+      </div>
+      <p class="section-note reveal" data-delay="3">These are widely cited industry figures, not IMS-specific results. They explain why reliability is a business issue, not just a technical one.</p>
+    </div>
+    <!-- Source check before publishing: Splunk/Oxford Economics, "The Hidden Costs of Downtime" (2024 Global 2000 report, $400B annual figure); ITIC, 2024 Hourly Cost of Downtime Survey (>90% of mid-size/large enterprises, $300K+/hour). Confirm current figures and citation language against the original reports prior to publication. -->
+    <div class="insight-grid">
+      <article class="insight-card reveal">
+        <p class="insight-card__figure">$400B+</p>
+        <p class="insight-card__label">Estimated annual cost of unplanned downtime to the world’s largest companies</p>
+        <p class="insight-card__desc">Independent industry research ties outages to lost revenue and productivity, not just repair time.</p>
+      </article>
+      <article class="insight-card reveal" data-delay="1">
+        <p class="insight-card__figure">90%+</p>
+        <p class="insight-card__label">Of mid-size and large enterprises report an hour of downtime can cost over $300,000</p>
+        <p class="insight-card__desc">One failed room during the wrong meeting can carry real financial weight, not just inconvenience.</p>
+      </article>
+      <article class="insight-card insight-card--text reveal" data-delay="2">
+        <p class="insight-card__quote">Reliability isn’t a convenience feature. It’s the difference between technology that supports the business and technology the business has to work around.</p>
+      </article>
+    </div>
+  </div>
+</section>
 <section id="shift" class="section section--navy shift" data-section="Shift">
   <div class="container">
     <p class="eyebrow reveal">02 · The Shift</p>
@@ -989,6 +1128,98 @@
         <p class="operator-card__label">Positioning</p>
         <p class="operator-card__quote">That’s the difference between a vendor and an operator.</p>
       </aside>
+    </div>
+    <div class="compare-grid">
+      <div class="compare-col compare-col--before reveal">
+        <p class="compare-col__label">Reactive AV</p>
+        <ul class="compare-col__list">
+          <li>You find out a room is down when someone walks in to use it.</li>
+          <li>Every fix starts with a ticket and a wait.</li>
+          <li>Refresh planning happens after something breaks.</li>
+          <li>Reporting is a status update, not a record.</li>
+        </ul>
+      </div>
+      <div class="compare-col compare-col--after reveal" data-delay="1">
+        <p class="compare-col__label">Managed by IMS</p>
+        <ul class="compare-col__list">
+          <li>Rooms are monitored continuously, before anyone walks in.</li>
+          <li>Most issues are caught and resolved before a meeting starts.</li>
+          <li>Lifecycle and budget planning is built into the model.</li>
+          <li>Reporting is data leadership can use to make decisions.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="failure-points" class="section section--navy" data-section="Failure Points">
+  <div class="container container--wide">
+    <div class="section-intro section-intro--split">
+      <div>
+        <p class="eyebrow reveal">Common Failure Points</p>
+        <h2 class="headline headline--section reveal" data-delay="1">Most AV Failures Are Predictable. <span class="headline--accent">That’s the Point.</span></h2>
+        <p class="subhead reveal" data-delay="2">The same handful of issues take down rooms again and again. In our model, each one has a defined owner.</p>
+      </div>
+      <div class="rack-visual reveal" data-delay="3">
+        <svg viewBox="0 0 200 260" role="img" aria-label="Illustration of a monitored AV equipment rack with status indicators">
+          <rect x="24" y="12" width="152" height="236" rx="12" fill="rgba(255,255,255,.04)" stroke="var(--teal-2)" stroke-width="2"></rect>
+          <line x1="24" y1="60" x2="176" y2="60" stroke="var(--line-dark)" stroke-width="1.5"></line>
+          <line x1="24" y1="108" x2="176" y2="108" stroke="var(--line-dark)" stroke-width="1.5"></line>
+          <line x1="24" y1="156" x2="176" y2="156" stroke="var(--line-dark)" stroke-width="1.5"></line>
+          <line x1="24" y1="204" x2="176" y2="204" stroke="var(--line-dark)" stroke-width="1.5"></line>
+          <circle cx="40" cy="36" r="5" fill="var(--teal-2)"></circle>
+          <circle cx="40" cy="84" r="5" fill="var(--teal-2)"></circle>
+          <circle cx="40" cy="132" r="5" fill="#e8a23c"></circle>
+          <circle cx="40" cy="180" r="5" fill="var(--teal-2)"></circle>
+          <circle cx="40" cy="226" r="5" fill="var(--teal-2)"></circle>
+          <line x1="58" y1="36" x2="160" y2="36" stroke="var(--line-dark)" stroke-width="3" stroke-linecap="round"></line>
+          <line x1="58" y1="84" x2="148" y2="84" stroke="var(--line-dark)" stroke-width="3" stroke-linecap="round"></line>
+          <line x1="58" y1="132" x2="156" y2="132" stroke="var(--line-dark)" stroke-width="3" stroke-linecap="round"></line>
+          <line x1="58" y1="180" x2="140" y2="180" stroke="var(--line-dark)" stroke-width="3" stroke-linecap="round"></line>
+          <line x1="58" y1="226" x2="152" y2="226" stroke="var(--line-dark)" stroke-width="3" stroke-linecap="round"></line>
+        </svg>
+      </div>
+    </div>
+    <div class="bento-grid">
+      <article class="bento-card reveal">
+        <p class="bento-card__problem">Power outages</p>
+        <p class="bento-card__arrow" aria-hidden="true">&rarr;</p>
+        <p class="bento-card__response">Continuous monitoring flags the disruption immediately, not when someone walks into the room.</p>
+      </article>
+      <article class="bento-card reveal" data-delay="1">
+        <p class="bento-card__problem">Hardware failures</p>
+        <p class="bento-card__arrow" aria-hidden="true">&rarr;</p>
+        <p class="bento-card__response">Lifecycle planning replaces aging components on a schedule, not after they fail.</p>
+      </article>
+      <article class="bento-card reveal" data-delay="2">
+        <p class="bento-card__problem">Software &amp; firmware issues</p>
+        <p class="bento-card__arrow" aria-hidden="true">&rarr;</p>
+        <p class="bento-card__response">Standardized configurations across rooms reduce the variables that cause faults.</p>
+      </article>
+      <article class="bento-card reveal" data-delay="3">
+        <p class="bento-card__problem">Cybersecurity disruption</p>
+        <p class="bento-card__arrow" aria-hidden="true">&rarr;</p>
+        <p class="bento-card__response">ISO/IEC 27001-certified practices govern how connected AV systems are secured and accessed.</p>
+      </article>
+      <article class="bento-card reveal">
+        <p class="bento-card__problem">Human error</p>
+        <p class="bento-card__arrow" aria-hidden="true">&rarr;</p>
+        <p class="bento-card__response">Trained staff augmentation puts a qualified person in the room for what matters most.</p>
+      </article>
+      <article class="bento-card reveal" data-delay="1">
+        <p class="bento-card__problem">Device sprawl</p>
+        <p class="bento-card__arrow" aria-hidden="true">&rarr;</p>
+        <p class="bento-card__response">Centralized reporting through 4Sight gives one view of every device, in every room.</p>
+      </article>
+      <article class="bento-card reveal" data-delay="2">
+        <p class="bento-card__problem">Room readiness gaps</p>
+        <p class="bento-card__arrow" aria-hidden="true">&rarr;</p>
+        <p class="bento-card__response">Health checks confirm a room is meeting-ready before it becomes someone’s problem.</p>
+      </article>
+      <article class="bento-card reveal" data-delay="3">
+        <p class="bento-card__problem">Unclear ownership</p>
+        <p class="bento-card__arrow" aria-hidden="true">&rarr;</p>
+        <p class="bento-card__response">One accountable owner and a defined escalation path, instead of a ticket in a queue.</p>
+      </article>
     </div>
   </div>
 </section>
@@ -1017,6 +1248,46 @@
       </div>
     </div>
     <p class="differentiator__closer reveal">The technology fades into the background. The user focuses on the meeting. IT focuses on strategy. Leadership focuses on the business.</p>
+  </div>
+</section>
+<section id="growth" class="section section--cream" data-section="Growth Lever">
+  <div class="container grid-2">
+    <div>
+      <p class="eyebrow reveal">Beyond Uptime</p>
+      <h2 class="headline headline--section reveal" data-delay="1">Reliable AV Is a Growth Lever, <span class="headline--accent">Not Just a Cost Center.</span></h2>
+      <p class="subhead reveal" data-delay="2">When meeting technology works, hybrid and in-person collaboration actually function the way they’re supposed to.</p>
+      <!-- Hybrid-work and collaboration ROI statistics (e.g., specific productivity or revenue-per-employee percentages) were intentionally left out of this section. Figures returned inconsistent values across sources during verification, so this section uses qualitative language only. Revisit if a single authoritative source is confirmed. -->
+      <div class="lever-list reveal" data-delay="3">
+        <div class="lever-item">
+          <p class="lever-item__title">Faster decisions</p>
+          <p class="lever-item__desc">Meetings that start on time and run without friction keep momentum on the things that actually move the business forward.</p>
+        </div>
+        <div class="lever-item">
+          <p class="lever-item__title">Stronger first impressions</p>
+          <p class="lever-item__desc">Clients, candidates, and board members form an opinion of a company partly from how its technology performs in the room.</p>
+        </div>
+        <div class="lever-item">
+          <p class="lever-item__title">Less hidden IT cost</p>
+          <p class="lever-item__desc">Every hour your IT team spends untangling a screen is an hour not spent on higher-value work.</p>
+        </div>
+      </div>
+    </div>
+    <div class="collab-visual reveal" data-delay="4">
+      <svg viewBox="0 0 320 260" role="img" aria-label="Illustration of a connected meeting room with a video display and participants">
+        <rect x="40" y="20" width="240" height="120" rx="10" fill="rgba(10,110,168,.06)" stroke="var(--teal)" stroke-width="2"></rect>
+        <rect x="56" y="36" width="100" height="44" rx="4" fill="none" stroke="var(--teal)" stroke-width="1.5" opacity=".55"></rect>
+        <rect x="164" y="36" width="100" height="44" rx="4" fill="none" stroke="var(--teal)" stroke-width="1.5" opacity=".55"></rect>
+        <rect x="56" y="88" width="100" height="44" rx="4" fill="none" stroke="var(--teal)" stroke-width="1.5" opacity=".55"></rect>
+        <rect x="164" y="88" width="100" height="44" rx="4" fill="var(--teal)" opacity=".18"></rect>
+        <circle cx="214" cy="110" r="11" fill="var(--teal)" opacity=".75"></circle>
+        <path d="M70 210 L250 210 L226 170 L94 170 Z" fill="none" stroke="var(--navy)" stroke-width="2" opacity=".65"></path>
+        <circle cx="100" cy="232" r="8" fill="var(--teal-2)"></circle>
+        <circle cx="160" cy="240" r="8" fill="var(--teal-2)"></circle>
+        <circle cx="220" cy="232" r="8" fill="var(--teal-2)"></circle>
+        <path d="M150 8 Q160 -4 170 8" fill="none" stroke="var(--teal)" stroke-width="2" opacity=".5"></path>
+        <path d="M142 14 Q160 -10 178 14" fill="none" stroke="var(--teal)" stroke-width="2" opacity=".3"></path>
+      </svg>
+    </div>
   </div>
 </section>
 <section id="architecture" class="section section--navy architecture" data-section="Pillars">
@@ -1067,20 +1338,15 @@
     <aside class="outcome-card reveal">
       <div>
         <p class="outcome-card__label">The outcome</p>
-        <p class="outcome-card__quote">A complete touchless model that scales to any budget, backed by 30+ years and the industry’s top award.</p>
+        <p class="outcome-card__quote">A complete touchless model that scales to any budget, backed by an accountable, single point of ownership.</p>
       </div>
       <div class="outcome-card__mark" aria-hidden="true">✓</div>
     </aside>
-    <div class="stat-strip">
-      <div class="stat-strip__item reveal"><p class="stat-strip__figure" data-count="30" data-suffix="+">30+</p><p class="stat-strip__label">Years of expertise</p></div>
-      <div class="stat-strip__item reveal"><p class="stat-strip__figure">#1</p><p class="stat-strip__label">2025 Integrator of the Year</p></div>
-      <div class="stat-strip__item reveal"><p class="stat-strip__figure" data-count="99.2" data-suffix="%">99.2%</p><p class="stat-strip__label">Average uptime, managed environments</p></div>
-    </div>
   </div>
 </section>
 <section id="proof" class="section section--cream proof" data-section="Proof">
   <div class="container">
-    <p class="eyebrow reveal">05 · Proof, Not Promises</p>
+    <p class="eyebrow reveal">05 · Proof Without the Noise</p>
     <h2 class="headline headline--section reveal" data-delay="1">We’ve Earned the Right to Say This.</h2>
     <p class="subhead reveal" data-delay="2">Independently verified. Not self-declared.</p>
     <div class="stat-strip proof-grid">
@@ -1098,6 +1364,11 @@
         <p class="stat-strip__figure" data-count="30" data-suffix="+">30+</p>
         <p class="stat-strip__label">Years of AV Experience</p>
         <p class="stat-strip__desc">Three decades of integration depth, boardroom to broadcast.</p>
+      </article>
+      <article class="stat-strip__item reveal">
+        <p class="stat-strip__figure" data-count="5" data-suffix="x">5x</p>
+        <p class="stat-strip__label">Consecutive Commercial Integrator Awards</p>
+        <p class="stat-strip__desc">Five straight years of named project recognition, 2021 through 2025, not a one-time honor.</p>
       </article>
     </div>
     <div class="credential-strip reveal" style="justify-content:center; margin-top:56px;">
@@ -1127,6 +1398,11 @@
       <h2 class="headline reveal" data-delay="1">Let’s Make Your AV Boring Again.</h2>
       <p class="cta__sub reveal" data-delay="2">Liam Boyle · <a href="mailto:lboyle@imsts.com">lboyle@imsts.com</a> · IMS Technology Services</p>
       <p class="cta__decision reveal" data-delay="3">One conversation. One assessment of your current environment. Zero obligation.</p>
+      <div class="cta__steps reveal" data-delay="3">
+        <div class="cta__step"><span class="cta__step-num">01</span><span>Conversation about where your AV environment stands today.</span></div>
+        <div class="cta__step"><span class="cta__step-num">02</span><span>Assessment of your rooms, support model, and risk points.</span></div>
+        <div class="cta__step"><span class="cta__step-num">03</span><span>A clear recommendation, scoped to your environment and budget.</span></div>
+      </div>
       <div class="cta__actions reveal" data-delay="4">
         <a class="button button--primary" href="mailto:lboyle@imsts.com">lboyle@imsts.com</a>
         <a class="button button--ghost" href="tel:+16103611870">Call 610-361-1870</a>
