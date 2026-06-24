@@ -965,7 +965,7 @@
 
   .proof-layout {
     display: grid;
-    grid-template-columns: 1.05fr 1.35fr;
+    grid-template-columns: 1.4fr 1fr;
     gap: 18px;
     margin-top: 60px;
     align-items: stretch;
@@ -981,7 +981,8 @@
     color: var(--cream);
     box-shadow: var(--shadow-card);
     isolation: isolate;
-    min-height: 460px;
+    min-height: 380px;
+    cursor: default;
   }
   .proof-feature__bg {
     position: absolute;
@@ -990,9 +991,16 @@
     background-image: url('references/Delegate_Assembly_colorgraded.png');
     background-size: cover;
     background-position: center 30%;
-    filter: saturate(.85) contrast(1.05);
-    opacity: .55;
-    will-change: transform;
+    filter: saturate(.6) contrast(1.02);
+    opacity: .32;
+    will-change: transform, filter, opacity;
+    transition: opacity .6s var(--ease-fluid), filter .6s var(--ease-fluid), transform .6s var(--ease-fluid);
+  }
+  .proof-feature:hover .proof-feature__bg,
+  .proof-feature:focus-within .proof-feature__bg {
+    opacity: .85;
+    filter: saturate(1.15) contrast(1.05);
+    transform: scale(1.04);
   }
   .proof-feature::after {
     content: '';
@@ -1000,8 +1008,14 @@
     inset: 0;
     z-index: -1;
     background:
-      linear-gradient(155deg, rgba(0, 28, 56, .82) 0%, rgba(0, 28, 56, .62) 45%, rgba(7, 32, 64, .82) 100%),
-      linear-gradient(180deg, transparent 40%, rgba(0, 16, 38, .55) 100%);
+      linear-gradient(155deg, rgba(0, 28, 56, .92) 0%, rgba(0, 28, 56, .82) 45%, rgba(7, 32, 64, .92) 100%),
+      linear-gradient(180deg, transparent 30%, rgba(0, 16, 38, .65) 100%);
+    transition: opacity .6s var(--ease-fluid);
+  }
+  .proof-feature:hover::after,
+  .proof-feature:focus-within::after { opacity: .68; }
+  @media (prefers-reduced-motion: reduce) {
+    .proof-feature__bg, .proof-feature::after { transition: none; }
   }
   .proof-feature::before {
     content: '';
@@ -1235,7 +1249,7 @@
     border-radius: 999px;
     background: var(--teal-2);
     color: var(--navy);
-    font-size: 9px;
+    font-size: 10px;
     letter-spacing: .1em;
   }
   .compare-col__list { list-style: none; margin-top: 22px; display: grid; gap: 15px; }
@@ -1381,7 +1395,7 @@
     gap: 6px;
     margin-bottom: 10px;
     font-family: var(--font-mono);
-    font-size: 10px;
+    font-size: 11px;
     letter-spacing: .1em;
     text-transform: uppercase;
     color: var(--teal-2);
@@ -1428,7 +1442,7 @@
     .outcome-card__mark { width: 88px; }
     .loop-diagram { --size: min(92vw, 420px); }
     .loop-node { min-width: 96px; }
-    .loop-node .label { font-size: 10px; padding: 7px 8px; }
+    .loop-node .label { font-size: 11px; padding: 7px 8px; }
     .insight-grid, .compare-grid, .bento-grid, .proof-grid { grid-template-columns: 1fr; }
     .compare-vs { display: none; }
     .proof-support { grid-template-columns: 1fr; }
@@ -1761,22 +1775,20 @@
       <article class="pillar-card reveal">
         <div class="pillar-card__icon" aria-hidden="true">
           <svg viewBox="0 0 64 64" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path class="accent" d="M16 12 H44" stroke-width="1.75"></path>
-            <path class="accent" d="M40 8 L44 12 L40 16" stroke-width="1.75"></path>
-            <path d="M52 16 V44" stroke="currentColor" stroke-width="1.75"></path>
-            <path d="M48 40 L52 44 L56 40" stroke="currentColor" stroke-width="1.75"></path>
-            <path d="M48 52 H20" stroke="currentColor" stroke-width="1.75"></path>
-            <path d="M24 48 L20 52 L24 56" stroke="currentColor" stroke-width="1.75"></path>
-            <path d="M12 48 V20" stroke="currentColor" stroke-width="1.75"></path>
-            <path d="M16 24 L12 20 L8 24" stroke="currentColor" stroke-width="1.75"></path>
+            <path d="M8 52 H56" stroke="currentColor" stroke-width="1.75" opacity=".45"></path>
+            <rect x="14" y="38" width="8" height="14" fill="currentColor" opacity=".85"></rect>
+            <rect x="28" y="28" width="8" height="24" fill="currentColor" opacity=".85"></rect>
+            <rect x="42" y="18" width="8" height="34" fill="currentColor" opacity=".85"></rect>
+            <path class="accent" d="M14 44 L32 30 L50 14" stroke-width="1.75"></path>
+            <circle class="accent--fill" cx="50" cy="14" r="2.6"></circle>
           </svg>
         </div>
-        <div class="pillar-card__top"><p class="pillar-card__num">02</p><p class="pillar-card__tag">Lifecycle</p></div>
-        <h3 class="pillar-card__name">AVaaS</h3>
-        <p class="pillar-card__promise">One line item. Not a capital event.</p>
-        <p class="pillar-card__desc">Hardware, install, support, monitoring, and refresh, bundled into one operating cost. IMS owns the deployment and the upgrade path, not just the financing.</p>
-        <div class="pillar-card__stat"><p class="pillar-card__stat-figure">CapEx to OpEx</p><p class="pillar-card__stat-label">Budget alignment CFOs prefer</p></div>
-        <ul class="pillar-card__outcomes"><li>No five-year capital ambush</li><li>Technology stays current automatically</li></ul>
+        <div class="pillar-card__top"><p class="pillar-card__num">02</p><p class="pillar-card__tag">Intelligence</p></div>
+        <h3 class="pillar-card__name">Reporting / 4Sight</h3>
+        <p class="pillar-card__promise">Evidence, not anecdotes, for the budget conversation.</p>
+        <p class="pillar-card__desc">Our proprietary monitoring platform turns AV from a reactive cost center into usage data, health analytics, and trend reports leadership can act on.</p>
+        <div class="pillar-card__stat"><p class="pillar-card__stat-figure">Evidence-based ROI</p><p class="pillar-card__stat-label">For every refresh and upgrade conversation</p></div>
+        <ul class="pillar-card__outcomes"><li>Real data to justify the next refresh</li><li>Usage analytics to right-size space</li></ul>
       </article>
       <article class="pillar-card reveal">
         <div class="pillar-card__icon" aria-hidden="true">
@@ -1795,20 +1807,22 @@
       <article class="pillar-card reveal">
         <div class="pillar-card__icon" aria-hidden="true">
           <svg viewBox="0 0 64 64" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M8 52 H56" stroke="currentColor" stroke-width="1.75" opacity=".45"></path>
-            <rect x="14" y="38" width="8" height="14" fill="currentColor" opacity=".85"></rect>
-            <rect x="28" y="28" width="8" height="24" fill="currentColor" opacity=".85"></rect>
-            <rect x="42" y="18" width="8" height="34" fill="currentColor" opacity=".85"></rect>
-            <path class="accent" d="M14 44 L32 30 L50 14" stroke-width="1.75"></path>
-            <circle class="accent--fill" cx="50" cy="14" r="2.6"></circle>
+            <path class="accent" d="M16 12 H44" stroke-width="1.75"></path>
+            <path class="accent" d="M40 8 L44 12 L40 16" stroke-width="1.75"></path>
+            <path d="M52 16 V44" stroke="currentColor" stroke-width="1.75"></path>
+            <path d="M48 40 L52 44 L56 40" stroke="currentColor" stroke-width="1.75"></path>
+            <path d="M48 52 H20" stroke="currentColor" stroke-width="1.75"></path>
+            <path d="M24 48 L20 52 L24 56" stroke="currentColor" stroke-width="1.75"></path>
+            <path d="M12 48 V20" stroke="currentColor" stroke-width="1.75"></path>
+            <path d="M16 24 L12 20 L8 24" stroke="currentColor" stroke-width="1.75"></path>
           </svg>
         </div>
-        <div class="pillar-card__top"><p class="pillar-card__num">04</p><p class="pillar-card__tag">Intelligence</p></div>
-        <h3 class="pillar-card__name">Reporting / 4Sight</h3>
-        <p class="pillar-card__promise">Evidence, not anecdotes, for the budget conversation.</p>
-        <p class="pillar-card__desc">Our proprietary monitoring platform turns AV from a reactive cost center into usage data, health analytics, and trend reports leadership can act on.</p>
-        <div class="pillar-card__stat"><p class="pillar-card__stat-figure">Evidence-based ROI</p><p class="pillar-card__stat-label">For every refresh and upgrade conversation</p></div>
-        <ul class="pillar-card__outcomes"><li>Real data to justify the next refresh</li><li>Usage analytics to right-size space</li></ul>
+        <div class="pillar-card__top"><p class="pillar-card__num">04</p><p class="pillar-card__tag">Lifecycle</p></div>
+        <h3 class="pillar-card__name">AVaaS</h3>
+        <p class="pillar-card__promise">One line item. Not a capital event.</p>
+        <p class="pillar-card__desc">Hardware, install, support, monitoring, and refresh, bundled into one operating cost. IMS owns the deployment and the upgrade path, not just the financing.</p>
+        <div class="pillar-card__stat"><p class="pillar-card__stat-figure">CapEx to OpEx</p><p class="pillar-card__stat-label">Budget alignment CFOs prefer</p></div>
+        <ul class="pillar-card__outcomes"><li>No five-year capital ambush</li><li>Technology stays current automatically</li></ul>
       </article>
     </div>
     <aside class="outcome-card reveal">
@@ -1818,7 +1832,7 @@
       </div>
       <div class="outcome-card__mark" aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="none">
-          <rect x="12" y="2.5" width="13.4" height="13.4" transform="rotate(45 12 12)" stroke="var(--gold)" stroke-width="1.5"/>
+          <rect x="5.3" y="5.3" width="13.4" height="13.4" transform="rotate(45 12 12)" stroke="var(--gold)" stroke-width="1.5"/>
           <line x1="12" y1="3.5" x2="12" y2="12" stroke="var(--gold)" stroke-width="1.5"/>
         </svg>
       </div>
