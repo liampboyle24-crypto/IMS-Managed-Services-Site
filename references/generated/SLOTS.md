@@ -15,10 +15,10 @@ pass how to source it.
 
 | # | Section in `index.html` | Type | Filename or marker | Aspect / size | Treatment |
 |---|---|---|---|---|---|
-| 01 | `#top` Hero | 📷 | `hero.png` | 21:9 · 3200 × 1372 | Full-bleed right column behind hero card. Navy gradient overlay on left for headline legibility. **Essential.** |
-| 02 | `#problem` Install Day Is Not the Finish Line | — | *(none)* | — | Drop the photo. Type-led section with a single small ⬛ icon next to the eyebrow. |
-| 03 | `#reliability` Downtime | 🟦 | inline svg: `uptime-stripe` | ~800 × 120 | Replace background photo with a horizontal SVG strip chart showing 30 days of uptime ticks — 28 navy ticks, 2 gold ticks for outages. Lives above the stat grid. |
-| 04 | `#shift` We Don't Install AV. We Run It. | 📷 | `shift.png` | 3:2 · 2400 × 1600 | NOC at night, three-quarter back. **Essential second photo.** Pair to the hero. |
+| 01 | `#top` Hero | 📷 | `hero.png` ✅ uploaded | 21:9 · 3200 × 1372 | Full-bleed right column behind hero card. Navy gradient overlay on left for headline legibility. **Essential.** |
+| 02 | `#problem` Install Day Is Not the Finish Line | — | *(none — but `problem.png` is uploaded)* | — | Plan now drops the photo and goes type-led with a single small ⬛ icon. The uploaded `problem.png` is on the branch — keep it as a fallback if the type-led version reads thin during the redesign pass. Don't delete without user sign-off. |
+| 03 | `#reliability` Downtime | 🟦 | inline svg: `uptime-stripe` *(but `reliability.png` is uploaded)* | ~800 × 120 | Plan: horizontal SVG strip chart, 28 navy uptime ticks + 2 gold incident ticks, above the stat grid. The uploaded `reliability.png` is on the branch — keep as fallback (`background-image` at ~14% behind the grid) if the SVG-only treatment feels too sparse. Don't delete without user sign-off. |
+| 04 | `#shift` We Don't Install AV. We Run It. | 📷 | `shift.png` ✅ uploaded | 3:2 · 2400 × 1600 | NOC at night, three-quarter back. **Essential second photo.** Pair to the hero. |
 | 05 | `#failure-points` Predictable Failures | ⬛ | Lucide: `volume-2`, `monitor`, `wifi`, `plug`, `terminal` | 32 × 32 each | Five small icons, one per failure category (audio, video, network, power, control software), aligned in a tight strip above the list. |
 | 06 | `#how` Touchless (closed loop) | 🟦 | existing SVG | — | Keep the existing `.loop-diagram` SVG. Tighten stroke weight + gold accent on the active node. No new asset. |
 | 07 | `#growth` Reliable AV Is a Growth Lever | 🟦 | inline svg: `growth-arc` | ~480 × 360 | Replace the inline collab-room SVG with a cleaner abstract motif: an upward arc of three nodes (Decisions → Impressions → Cost) connected by a thin navy line, gold node at the apex. |
@@ -41,6 +41,15 @@ the only optional 📷 slot. Everything else is either essential, vector, or
 removed.
 
 ---
+
+### Files currently on disk
+
+| File | Plan status | Action |
+|---|---|---|
+| `hero.png` | ✅ slot 01 — in use | Wire into hero. |
+| `shift.png` | ✅ slot 04 — in use | Wire into shift section. |
+| `problem.png` | ⚠ uploaded, plan dropped the slot | Keep on branch as a fallback. Revisit during redesign — type-led may not carry the section alone. |
+| `reliability.png` | ⚠ uploaded, plan dropped the slot | Keep on branch as a fallback. Pair with the SVG strip chart only if the chart-only treatment reads too sparse. |
 
 ### Why each removal
 
