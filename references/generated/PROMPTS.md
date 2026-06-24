@@ -1,82 +1,41 @@
-# Image Generation Prompts — IMS Managed Services Site
+# Generation Prompts — IMS Managed Services Site
 
-One prompt per slot. Save the result with the exact filename in the heading.
-See `SLOTS.md` for where each one lives in the site, and `README.md` for the
-shared brand world and the negative-prompt block that should be appended to
-**every** prompt.
-
-> **Append to every prompt (shared negative):**
-> *no glowing holographic UI, no neon, no purple/teal AI gradient, no lens
-> flares, no light-streak overlays, no glass orbs, no centered face portrait,
-> no fake brand logos, no readable text overlays, no stock-photo handshake,
-> no headset call-center cliché, no fisheye, no tilt-shift miniature, no
-> heavy vignette, no oversaturation.*
+Split by asset type. See `SLOTS.md` for which section each one fills and
+`README.md` for the brand world and the negative-prompt block to append.
 
 ---
 
-## 01 · `hero.png` — Hero, 21:9 cinematic banner
+# § Photos
 
-Cinematic editorial photograph of a quiet, premium executive briefing centre,
-shot from a slight low angle three-quarter view. A long walnut conference
-table runs into the frame. At the far wall, a clean ultra-wide LED video
-wall glows soft cool white, with abstract participant tiles too soft to
-read. Acoustic felt walls in deep navy, brushed graphite accents, recessed
-warm linear lighting, concealed cable runs disappearing into the floor.
-Empty room, no people in frame. Faint atmospheric haze. Large-format
+Raster PNGs that land in this folder. Append the shared photo negative
+prompt (see `README.md`) to every prompt below.
+
+## 01 · `hero.png` — Hero, 21:9 cinematic banner  *(essential)*
+
+Cinematic editorial photograph of a quiet, premium executive briefing
+centre, shot from a slight low angle three-quarter view. A long walnut
+conference table runs into the frame. At the far wall, a clean ultra-wide
+LED video wall glows soft cool white, with abstract participant tiles too
+soft to read. Acoustic felt walls in deep navy, brushed graphite accents,
+recessed warm linear lighting, concealed cable runs disappearing into the
+floor. Empty room, no people in frame. Faint atmospheric haze. Large-format
 camera feel, 50mm lens, f/4, calm and quiet. Subtle film grain.
 
 Palette: deep navy `#001833`, brushed graphite, warm precision-gold accent
-`#ECAE3D` only in the practical wall sconces, soft cream tabletop highlights.
+`#ECAE3D` only in the practical wall sconces, soft cream tabletop
+highlights.
 
 Aspect: 21:9. Mood: quiet competence. Read: *the AV you never notice.*
 
----
-
-## 02 · `problem.png` — Problem, 4:5 editorial portrait
-
-Close, editorial photograph of a technician's gloved hands finishing the
-last cable termination inside an open AV equipment rack mounted in a side
-closet. Neatly bundled CAT6 and fiber runs, labeled with small metal tags,
-disappearing up out of frame. Door is half open, warm office light spilling
-in from the right. The technician's body is implied at the edge of frame —
-forearm, glove, sleeve — never a face. Shallow depth of field on the
-termination point.
-
-Palette: ink charcoal rack, brushed steel, navy patch cables, one warm
-precision-gold cable tag in focus.
-
-Aspect: 4:5 portrait. Mood: install day is the *beginning*, not the end.
-Should feel like a finished job that someone will still have to keep alive.
-
----
-
-## 03 · `reliability.png` — Reliability backdrop, 16:10
-
-Wide editorial photograph of an empty modern conference room, lights dimmed
-for after-hours. The main video conference display at the head of the room
-is dark, with one faint standby indicator. Soft cool ambient from the
-ceiling cove. Empty leather chairs neatly tucked into the table. View is
-straight-on from the back of the room, so the dark screen is the focal
-point.
-
-Palette: deep navy walls, charcoal carpet, brushed steel chair legs, single
-cold blue standby pinprick on the dark screen.
-
-Aspect: 16:10. Mood: the cost of downtime when no one is watching. Quiet,
-slightly tense. Should sit comfortably under a navy `#001833` overlay at
-~14% opacity behind a stat grid.
-
----
-
-## 04 · `shift.png` — Operational pivot, 3:2
+## 04 · `shift.png` — Operational pivot, 3:2  *(essential)*
 
 Photograph of a network / AV operations centre at night, shot in
 three-quarter from behind a single seated operator. The operator wears a
 neutral dark technical jumper, headset off and resting on the desk. In
 front: a curved triple-monitor setup showing abstract dashboard panels (no
 readable text), and beyond that a wall of softly glowing room-health tiles.
-Workspace is clean, no clutter, no soda cans, no posters. Cool ambient
-lighting with a single warm desk lamp on the right of the operator.
+Workspace is clean, no clutter, no posters. Cool ambient lighting with a
+single warm desk lamp on the right of the operator.
 
 Palette: deep navy back wall, charcoal desk, cool blue monitor wash, single
 warm precision-gold desk lamp glow.
@@ -84,126 +43,7 @@ warm precision-gold desk lamp glow.
 Aspect: 3:2 landscape. Mood: *we don't install AV, we run it.* Operational,
 unglamorous, awake.
 
----
-
-## 05 · `failure-points.png` — Predictable failures, 4:3
-
-Editorial close-up of the back of a populated AV rack: HDMI, USB-C, fiber,
-PoE, and a small touch-panel cable bundle, all neatly dressed but caught
-mid-troubleshoot. One cable is being lifted out at an angle, brushed
-metallic blue, with a soft motion blur on the hand. The rest of the rack
-is in sharp focus. Side light, slightly cool. Some labels are visible but
-unreadable.
-
-Palette: charcoal panels, navy patch cables, brushed steel, single warm
-amber LED on a switch port.
-
-Aspect: 4:3. Mood: predictable, diagnosable, knowable. *Not* chaotic.
-
----
-
-## 06 · `touchless.png` — Touchless service loop, 3:2
-
-Photograph of a small premium meeting room during a live call. Three soft
-silhouettes of seated participants from behind, slightly out of focus.
-Front of frame is dominated by a 75" wall display showing a soft, abstract
-six-tile video grid (no readable faces, no text). No one is touching a
-remote, a tablet, or a panel — the room is just running. Warm wood wall on
-one side, deep navy on the other.
-
-Palette: deep navy wall, walnut accent, soft cream daylight from the left,
-single precision-gold pendant lamp.
-
-Aspect: 3:2 landscape. Mood: technology *fades into the background*. The
-people are working; nothing is being fixed.
-
----
-
-## 07 · `growth.png` — Growth lever, 16:10
-
-Editorial photograph of a collaborative briefing space mid-session, shot
-from a corner. A small group is standing around a tall stand-up table, all
-seen from behind or in three-quarter back. On the wall: a large interactive
-display showing a soft abstract chart (no readable values, no fake
-dashboards). Whiteboard nearby with a few clean black marker strokes —
-shapes only, not letters. Mid-morning daylight from tall windows on the
-left.
-
-Palette: cream walls, walnut floor, deep navy accent wall behind the
-display, precision-gold pendant lighting.
-
-Aspect: 16:10. Mood: when the AV works, the *business* moves. Visible
-momentum without theatrics.
-
----
-
-## 08 · `pillar_01_service-support.png` — Pillar 01, 4:5
-
-*Generate 08–11 as one matched set. Same camera, same time of day, same
-grade.*
-
-Editorial portrait-format photograph of a single operator inside a Network
-Operations Centre, late evening. Operator is shown in profile from chest
-up, slightly back-lit by a wall of softly glowing monitoring tiles behind.
-Headset on, looking at one specific monitor. Cool blue ambient with one
-warm precision-gold desk lamp. Quiet, deliberate.
-
-Aspect: 4:5. Pillar role: *Service & Support — we see the problem before
-you do.*
-
----
-
-## 09 · `pillar_02_avaas.png` — Pillar 02, 4:5
-
-Portrait-format photograph of a pristine AV rack room mid-install, no
-people. Two side-by-side floor-standing racks fully populated, cable
-management dressed and labeled, the access door open just enough to see
-the front. Brushed steel, navy patch panels, one warm amber port LED. Cool
-overhead lighting.
-
-Aspect: 4:5. Pillar role: *AVaaS — one line item, not a capital event.*
-
----
-
-## 10 · `pillar_03_staff-augmentation.png` — Pillar 03, 4:5
-
-Portrait-format photograph of an IMS technician working alongside a client
-IT staff member at a wall-mounted AV control panel in a corridor outside a
-meeting room. Both shown three-quarter back, never face-forward. Technician
-is gesturing toward a small handheld test meter; the client staff member is
-listening. Soft, even corridor lighting.
-
-Aspect: 4:5. Pillar role: *Staff Augmentation — specialists you don't have
-to recruit.*
-
----
-
-## 11 · `pillar_04_reporting-4sight.png` — Pillar 04, 4:5
-
-Portrait-format photograph of a single workstation desk in a quiet analyst
-room. A large monitor displays a soft, abstract analytics view — clean
-gridlines, gentle area-chart shapes, no readable text or numbers. A
-notebook and a single pen rest on the desk. Cool ambient lighting, with a
-faint warm reflection on the monitor edge. No person in frame.
-
-Aspect: 4:5. Pillar role: *Reporting / 4Sight — evidence, not anecdotes.*
-
----
-
-## 12 · `proof.png` — Proof band, 16:9
-
-Photograph of a polished navy lobby wall with a single framed award plaque
-on the wall, off-centre to the left. The frame itself is brushed brass; the
-plaque inside is intentionally too soft to read. A small accent light above
-casts a warm precision-gold glow. The rest of the wall is calm matte navy.
-Shot slightly off-axis, slight perspective.
-
-Aspect: 16:9. Mood: *earned, not self-declared.* The image is the
-texture — the proof copy carries the words.
-
----
-
-## 13 · `promise.png` — Promise, 21:9 cinematic banner
+## 13 · `promise.png` — End-of-day bookend, 21:9  *(optional)*
 
 Counterpoint to the hero. Cinematic photograph of a wide, empty executive
 collaboration floor at end-of-day. Long sightline through a hallway of
@@ -221,36 +61,120 @@ end-of-day calm.
 
 ---
 
-## 14 · `contact.png` — Contact backdrop, 16:9
+# § Vector / inline SVG
 
-Editorial photograph of a quiet office reception detail at dusk: a brushed
-metal letter rail above a low walnut console, soft cream wall, a small
-precision-gold pendant light at the edge of frame. Shallow depth of field,
-the rail and console crisp, the rest falling off into navy shadow. No
-people, no logos, no readable signage.
+Prompts you paste into Claude / GPT / Gemini to generate inline `<svg>`
+markup, or that you (or I) hand-write directly into `index.html`. Output
+should be self-contained SVG: no external fonts, no `<image>`, no filter
+blurs, no gradients deeper than 2 stops.
 
-Aspect: 16:9. Used at ~18% opacity behind the contact / email block.
+Append to every SVG prompt:
+
+> Return only an inline `<svg>` element. Use `viewBox` for scaling, no
+> width/height attributes. Stroke colors must be CSS variables
+> (`var(--navy)`, `var(--gold)`). No raster fills, no `<image>` tags, no
+> blur filters, no drop shadows. Keep total node count under 60.
+
+## 03 · `uptime-stripe` — Reliability strip chart
+
+Generate an inline SVG, `viewBox="0 0 800 120"`, that draws a 30-day uptime
+strip. Thirty thin vertical bars across the full width, evenly spaced, each
+~12px wide. Twenty-eight bars are filled `var(--navy)` at full height
+(80px). Two bars (around day 9 and day 22) are filled `var(--gold)` at
+slightly shorter height (60px), representing detected-and-resolved
+incidents. Below the bars, one thin baseline rule in `var(--navy)` at 30%
+opacity. A small label area on the left for "30 day uptime — 99.2%" — but
+text comes from HTML, not the SVG. Stroke-less, fills only.
+
+## 05 · Failure point icons — `volume-2 monitor wifi plug terminal`
+
+These are library icons, not custom. Pull from Lucide
+(https://lucide.dev/icons) using the names above. Each rendered inline at
+32×32, stroke `var(--navy)`, 1.5px, no fill. Wrap each in a small
+`.failure-icon` container with a 1px navy border at 12% opacity and 6px
+radius. Order in the strip: `volume-2`, `monitor`, `wifi`, `plug`,
+`terminal`.
+
+## 07 · `growth-arc` — Growth motif
+
+Generate an inline SVG, `viewBox="0 0 480 360"`, depicting a calm upward
+arc connecting three labeled nodes left-to-right. Node 1 (bottom-left) at
+~(80, 280), Node 2 (middle) at ~(240, 180), Node 3 (top-right) at
+~(400, 80). A smooth cubic Bezier curve, stroke `var(--navy)`, 1.5px,
+no fill, slightly dashed (`stroke-dasharray="6 4"`). Each node is a
+circle r=10, fill `var(--navy)`, *except node 3* which is fill
+`var(--gold)`. Around node 3 only, a thin outer ring r=18, stroke
+`var(--gold)`, 1px, no fill. No text inside the SVG — labels come from
+adjacent HTML.
+
+## 08–11 · Pillar icon set  *(generate all four in one go for consistency)*
+
+Generate four inline SVGs, each `viewBox="0 0 64 64"`, sharing the same
+stroke weight (1.5px), same line caps (round), and the same single-gold-
+accent rule: most strokes are `var(--navy)`, exactly one stroke per icon
+is `var(--gold)` to signal the active layer.
+
+- **`pillar-icon-01` — Service & Support (Foundation)**: a stylised
+  radar-style concentric arc — three concentric quarter-arcs in the lower-
+  left quadrant, one small filled dot at the origin (gold). Reads as
+  monitoring sweep.
+- **`pillar-icon-02` — AVaaS (Lifecycle)**: a closed loop of four arrows
+  forming a square cycle (procure → deploy → support → refresh). All four
+  arrows navy except the top arrow which is gold.
+- **`pillar-icon-03` — Staff Augmentation (Human Layer)**: two stacked
+  rectangles offset diagonally, suggesting overlapping teams. The top
+  (smaller) rectangle is gold-stroked; the bottom navy.
+- **`pillar-icon-04` — Reporting / 4Sight (Intelligence)**: three
+  ascending vertical bars of increasing height with a single horizontal
+  axis line, and one thin trend-line crossing them. Bars navy; trend-line
+  gold.
+
+Set rule: same padding inside each viewBox (8px), same 1.5px stroke, same
+round caps, same line-join. If one drifts off-system, regenerate all four.
+
+## T2 · `gold-mark` — Outcome card accent
+
+Generate an inline SVG, `viewBox="0 0 24 24"`. Replace the existing `✓`
+glyph on the `.outcome-card__mark` with a small geometric mark: a
+24×24 square rotated 45°, drawn as a hollow diamond, stroke `var(--gold)`,
+1.5px, no fill, with a single shorter diagonal stroke inside from the
+top vertex to the centre, same stroke. Calm, precise, not a checkmark.
 
 ---
 
-## T1 · `texture_navy-grain.png` — Tileable texture, 1:1
+# § Library icons
 
-Seamless tileable texture: deep navy `#001833` base, fine analog film grain,
-extremely subtle longitudinal noise pattern (vertical fibre), no visible
-seams, no banding, no colour shift. Should multiply over a flat navy fill
-to give it depth without becoming a pattern.
+For all small UI marks not listed above (nav glyphs, list bullets, contact
+links), use **Lucide** as the default family. Pull each icon's SVG from
+lucide.dev, paste inline, and set `stroke="currentColor"` so it inherits
+the surrounding text color. Do not mix icon families.
 
-Aspect: 1:1, tileable. Usage: multiply blend, ~30% opacity on navy sections.
+Naming convention in markup: add `data-icon="<lucide-name>"` to the
+wrapper so a later pass can swap families in one find-and-replace if the
+brand evolves.
 
 ---
 
-## T2 · `texture_gold-foil.png` — Tileable accent, 1:1
+# § Textures
 
-Seamless tileable texture of brushed precision-gold foil `#ECAE3D`,
-horizontally raked brushing, subtle warm-to-cool variation across the
-surface, very fine micro-scratches. No glitter, no sparkle, no specular
-hotspots. Should sit under text or behind a small accent shape and read as
-a single warm material, not a pattern.
+## T1 · `texture-grain` — Subtle grain on navy
 
-Aspect: 1:1, tileable. Usage: soft-light blend on the outcome card mark and
-section dividers.
+Implement as an inline SVG filter inside `index.html`, *not* as a PNG.
+
+```html
+<svg width="0" height="0" style="position:absolute">
+  <filter id="texture-grain">
+    <feTurbulence type="fractalNoise" baseFrequency="0.9"
+                  numOctaves="2" stitchTiles="stitch"/>
+    <feColorMatrix values="0 0 0 0 0
+                           0 0 0 0 0
+                           0 0 0 0 0
+                           0 0 0 0.14 0"/>
+  </filter>
+</svg>
+```
+
+Apply to navy sections via a pseudo-element overlay with
+`filter:url(#texture-grain)` and `mix-blend-mode: multiply`. Tunable knobs:
+`baseFrequency` for grain density, the last column of the color matrix for
+opacity. No file, no request, no asset weight.
