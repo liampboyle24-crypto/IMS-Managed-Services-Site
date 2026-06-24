@@ -1345,14 +1345,6 @@
     from { transform: translateX(0); }
     to { transform: translateX(940px); }
   }
-  .uptime-stripe__caption {
-    margin-top: 10px;
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: .06em;
-    text-transform: uppercase;
-    color: var(--slate);
-  }
   .insight-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 56px; }
   .insight-card {
     padding: 28px;
@@ -1907,12 +1899,9 @@
 </section>
 <section id="reliability" class="section section--cream insight" data-section="Why It Matters">
   <div class="container">
-    <div class="section-intro section-intro--split">
-      <div>
-        <h2 class="headline headline--section reveal">Downtime Is Never Just a Screen Problem.</h2>
-        <p class="subhead reveal" data-delay="2">When a room fails, the cost shows up everywhere except the AV line item.</p>
-      </div>
-      <p class="section-note reveal" data-delay="3">These are widely cited meeting and AV industry figures, not IMS-specific results. They explain why room reliability is a business issue, not just a technical one.</p>
+    <div class="section-intro">
+      <h2 class="headline headline--section reveal">Downtime Is Never Just a Screen Problem.</h2>
+      <p class="subhead reveal" data-delay="2">When a room fails, the cost shows up everywhere except the AV line item.</p>
     </div>
     <!-- Source check before publishing: Owl Labs "State of Hybrid Work 2024" (share of workers reporting meetings delayed by tech/connection issues); industry surveys on minutes lost to AV setup per meeting (e.g. Barco ClickShare / collaboration-friction studies). Confirm current figures and citation language against the original reports prior to publication. -->
     <div class="uptime-stripe reveal" data-delay="3" aria-hidden="true" data-parallax="20">
@@ -1961,7 +1950,6 @@
         <rect class="uptime-sweep" x="-120" y="12" width="120" height="88" fill="url(#uptimeSweepGradient)"></rect>
       </svg>
     </div>
-    <p class="uptime-stripe__caption reveal" data-delay="3">Illustrative monitoring pattern — gold dips represent detected outages caught and resolved before anyone notices.</p>
     <div class="insight-grid">
       <article class="insight-card reveal">
         <p class="insight-card__figure" data-count="72" data-suffix="%">72%</p>
