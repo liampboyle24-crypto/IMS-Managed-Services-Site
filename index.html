@@ -334,7 +334,7 @@
     border: 1px solid transparent;
     text-decoration: none;
     font-weight: 850;
-    transition: transform .45s var(--ease-fluid), box-shadow .45s var(--ease-fluid), background .3s var(--ease-fluid), border-color .3s var(--ease-fluid);
+    transition: transform .15s var(--ease-out-strong), box-shadow .2s var(--ease-out-strong), background .2s var(--ease-fluid), border-color .2s var(--ease-fluid);
   }
   .button:hover { transform: translateY(-2px); }
   .button:active { transform: translateY(-1px) scale(.97); }
@@ -360,7 +360,7 @@
     border-radius: 999px;
     background: var(--gold);
     color: var(--ink-on-gold);
-    transition: transform .5s var(--ease-spring), background .3s var(--ease-fluid);
+    transition: transform .2s var(--ease-spring), background .2s var(--ease-fluid);
   }
   .button--primary:hover .button__icon { transform: translate(3px, -2px) scale(1.08); background: var(--gold-2); }
   .credential-strip {
@@ -619,7 +619,6 @@
     background: radial-gradient(circle at 40% 38%, rgba(113, 201, 242, .20), transparent 46%), radial-gradient(circle at 68% 66%, rgba(236, 174, 61, .12), transparent 38%);
     filter: blur(34px);
     opacity: .68;
-    transform: translate3d(0, calc(var(--loop-progress, 0) * -24px), 0);
   }
   .differentiator::after {
     inset: auto 7% 12% auto;
@@ -653,7 +652,7 @@
     background: linear-gradient(145deg, rgba(255, 255, 255, .88), rgba(255, 255, 255, .56));
     box-shadow: 0 26px 90px rgba(7, 27, 52, .13), inset 0 1px 0 rgba(255, 255, 255, .72);
     backdrop-filter: blur(18px);
-    transition: transform .5s var(--ease-out-strong), border-color .5s var(--ease-fluid), box-shadow .5s var(--ease-fluid), background .5s var(--ease-fluid);
+    transition: transform .2s var(--ease-out-strong), border-color .2s var(--ease-fluid), box-shadow .2s var(--ease-fluid), background .2s var(--ease-fluid);
   }
   .touchless-card::before {
     content: '';
@@ -897,7 +896,7 @@
     transform: scale(1.32);
     box-shadow: 0 0 0 11px rgba(10, 110, 168, .15), 0 0 28px rgba(10, 110, 168, .30), inset 0 1px 0 rgba(255, 255, 255, .85);
   }
-  .loop-node.is-active .dot::after { animation: nodePing 1.7s var(--ease-out-strong) infinite; }
+  .loop-node.is-active .dot::after { animation: nodePing 1.7s linear infinite; }
   @keyframes nodePing {
     0% { opacity: .78; transform: scale(.62); }
     72%, 100% { opacity: 0; transform: scale(1.55); }
@@ -968,11 +967,11 @@
     border-radius: 12px;
     background: rgba(255, 255, 255, .04);
     border: 1px solid rgba(255, 255, 255, .08);
-    transition: transform .6s cubic-bezier(0.32, 0.72, 0, 1), background .4s var(--ease-fluid), border-color .4s var(--ease-fluid);
+    transition: transform .2s var(--ease-out-strong), background .2s var(--ease-fluid), border-color .2s var(--ease-fluid);
   }
   .pillar-card:hover .pillar-card__icon { transform: translateY(-2px) scale(1.04); background: rgba(236, 174, 61, .08); border-color: rgba(236, 174, 61, .35); }
   .pillar-card__icon svg { width: 70%; height: 70%; display: block; }
-  .pillar-card.reveal .pillar-card__icon { opacity: 0; transform: translateY(8px) scale(.94); transition: opacity .9s cubic-bezier(0.32, 0.72, 0, 1) .25s, transform .9s cubic-bezier(0.32, 0.72, 0, 1) .25s, background .4s var(--ease-fluid), border-color .4s var(--ease-fluid); }
+  .pillar-card.reveal .pillar-card__icon { opacity: 0; transform: translateY(8px) scale(.94); transition: opacity .9s cubic-bezier(0.32, 0.72, 0, 1) .25s, transform .9s cubic-bezier(0.32, 0.72, 0, 1) .25s, background .2s var(--ease-fluid), border-color .2s var(--ease-fluid); }
   .pillar-card.reveal.is-visible .pillar-card__icon { opacity: 1; transform: translateY(0) scale(1); }
   @media (prefers-reduced-motion: reduce) {
     .pillar-card.reveal .pillar-card__icon { opacity: 1; transform: none; transition: none; }
@@ -1088,7 +1087,7 @@
     border: 1px solid var(--line-dark);
     background: rgba(255, 255, 255, .055);
     text-align: center;
-    transition: transform .5s var(--ease-fluid), border-color .5s var(--ease-fluid), box-shadow .5s var(--ease-fluid);
+    transition: transform .2s var(--ease-out-strong), border-color .2s var(--ease-fluid), box-shadow .2s var(--ease-fluid);
   }
   .stat-strip__item:hover { transform: translateY(-6px); border-color: rgba(113, 201, 242, .4); }
   .section--cream .stat-strip__item { background: rgba(255, 255, 255, .66); border-color: var(--line-light); box-shadow: var(--shadow-soft); }
@@ -1361,7 +1360,7 @@
     border: 1px solid var(--line-light);
     background: rgba(255, 255, 255, .68);
     box-shadow: var(--shadow-soft);
-    transition: transform .5s var(--ease-fluid), box-shadow .5s var(--ease-fluid);
+    transition: transform .2s var(--ease-out-strong), box-shadow .2s var(--ease-fluid);
   }
   .insight-card:hover { transform: translateY(-6px); box-shadow: 0 30px 70px rgba(7, 27, 52, .16); }
   .insight-card--text:hover { box-shadow: 0 30px 70px rgba(7, 27, 52, .35); }
@@ -1376,7 +1375,7 @@
     padding: clamp(24px, 3vw, 34px);
     border-radius: var(--radius-md);
     border: 1px solid var(--line-dark);
-    transition: transform .5s var(--ease-fluid), box-shadow .5s var(--ease-fluid), border-color .5s var(--ease-fluid);
+    transition: transform .2s var(--ease-out-strong), box-shadow .2s var(--ease-fluid), border-color .2s var(--ease-fluid);
   }
   .compare-col--before { background: rgba(255, 255, 255, .03); }
   .compare-col--before:hover { transform: translateY(-4px); }
@@ -1464,11 +1463,11 @@
     border-radius: var(--radius-md);
     border: 1px solid var(--line-dark);
     background: rgba(255, 255, 255, .045);
-    transition: transform .5s var(--ease-fluid), border-color .5s var(--ease-fluid), background .5s var(--ease-fluid);
+    transition: transform .2s var(--ease-out-strong), border-color .2s var(--ease-fluid), background .2s var(--ease-fluid);
   }
   .bento-card:hover { transform: translateY(-5px); border-color: rgba(113, 201, 242, .4); background: rgba(255, 255, 255, .08); }
   .bento-card__problem { font-family: var(--font-mono); font-size: 12px; letter-spacing: .05em; text-transform: uppercase; font-weight: 800; color: var(--cream); }
-  .bento-card__arrow { color: var(--teal-2); font-size: 14px; margin: 10px 0; transition: transform .5s var(--ease-spring); }
+  .bento-card__arrow { color: var(--teal-2); font-size: 14px; margin: 10px 0; transition: transform .2s var(--ease-spring); }
   .bento-card:hover .bento-card__arrow { transform: translateX(4px); }
   .bento-card__response { color: #c2cedb; font-size: 13.5px; line-height: 1.6; }
 
@@ -1484,7 +1483,7 @@
     position: relative;
     padding: clamp(28px, 3vw, 44px);
     border-right: 1px solid var(--line-light);
-    transition: background .4s var(--ease-fluid);
+    transition: background .2s ease;
   }
   .growth-card:last-child { border-right: none; }
   .growth-card:hover { background: rgba(0, 45, 86, .04); }
@@ -1571,7 +1570,7 @@
     pointer-events: none;
     background: radial-gradient(520px circle at var(--mx, 50%) var(--my, 35%), rgba(113, 201, 242, .18), transparent 44%);
     opacity: 0;
-    transition: opacity .35s var(--ease-fluid);
+    transition: opacity .2s var(--ease-fluid);
   }
   @media (hover: hover) and (pointer: fine) {
     .insight-card:hover::after,
@@ -1719,7 +1718,7 @@
       linear-gradient(145deg, #073f70, var(--navy));
     border: 1px solid rgba(255, 255, 255, .2);
     transform: translateZ(0);
-    transition: transform .42s cubic-bezier(0.32, 0.72, 0, 1), box-shadow .42s var(--ease-fluid);
+    transition: transform .2s var(--ease-out-strong), box-shadow .2s var(--ease-fluid);
   }
   .outcome-card__mark::before {
     content: '';
@@ -1736,7 +1735,7 @@
     border-radius: 50%;
     background: radial-gradient(circle, rgba(236, 174, 61, .18), transparent 62%);
     opacity: 0;
-    transition: opacity .42s var(--ease-fluid);
+    transition: opacity .2s var(--ease-fluid);
     z-index: -1;
   }
   .outcome-card__mark svg {
@@ -2333,7 +2332,12 @@
     siteNav?.classList.toggle('is-scrolled', window.scrollY > 24);
   };
   updateProgress();
-  window.addEventListener('scroll', updateProgress, { passive: true });
+  let progressTicking = false;
+  window.addEventListener('scroll', () => {
+    if (progressTicking) return;
+    progressTicking = true;
+    requestAnimationFrame(() => { updateProgress(); progressTicking = false; });
+  }, { passive: true });
 
   if ('IntersectionObserver' in window) {
     const navObserver = new IntersectionObserver((entries) => {
@@ -2412,7 +2416,6 @@
     const updateLoopProgress = () => {
       const progress = prefersReduced ? 1 : getLoopProgress();
       const dashOffset = (1 - progress).toFixed(4);
-      loopSection.style.setProperty('--loop-progress', progress.toFixed(4));
       loopDiagram.style.setProperty('--loop-progress', progress.toFixed(4));
       if (loopRing) loopRing.style.strokeDashoffset = dashOffset;
       setLoopSpark(progress);
@@ -2466,16 +2469,22 @@
     const MAX_X = 6; // up/down tilt, deg
     document.querySelectorAll('.pillar-card, .touchless-card, .insight-card, .stat-strip__item, .growth-card, .bento-card, .compare-col, .proof-card, .outcome-card').forEach((card) => {
       const tiltable = canTilt && card.classList.contains('pillar-card');
+      let cardTicking = false;
       card.addEventListener('pointermove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const px = (e.clientX - rect.left) / rect.width;  // 0..1
-        const py = (e.clientY - rect.top) / rect.height;  // 0..1
-        card.style.setProperty('--mx', `${px * 100}%`);
-        card.style.setProperty('--my', `${py * 100}%`);
-        if (tiltable) {
-          card.style.setProperty('--ry', `${((px - .5) * MAX_Y).toFixed(2)}deg`);
-          card.style.setProperty('--rx', `${((.5 - py) * MAX_X).toFixed(2)}deg`);
-        }
+        if (cardTicking) return;
+        cardTicking = true;
+        requestAnimationFrame(() => {
+          const rect = card.getBoundingClientRect();
+          const px = (e.clientX - rect.left) / rect.width;  // 0..1
+          const py = (e.clientY - rect.top) / rect.height;  // 0..1
+          card.style.setProperty('--mx', `${px * 100}%`);
+          card.style.setProperty('--my', `${py * 100}%`);
+          if (tiltable) {
+            card.style.setProperty('--ry', `${((px - .5) * MAX_Y).toFixed(2)}deg`);
+            card.style.setProperty('--rx', `${((.5 - py) * MAX_X).toFixed(2)}deg`);
+          }
+          cardTicking = false;
+        });
       });
       if (tiltable) {
         card.addEventListener('pointerleave', () => {
