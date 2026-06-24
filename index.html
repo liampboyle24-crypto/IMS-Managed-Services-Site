@@ -674,6 +674,15 @@
     background: var(--teal);
     box-shadow: 0 0 0 8px rgba(10, 110, 168, .12);
   }
+  .loop-node .dot::after {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    border-radius: 50%;
+    border: 1.5px solid var(--teal);
+    opacity: 0;
+    transform: scale(.6);
+  }
   .loop-node .label {
     display: inline-flex;
     justify-content: center;
@@ -688,6 +697,24 @@
     letter-spacing: .08em;
     text-transform: uppercase;
     box-shadow: 0 8px 22px rgba(7, 27, 52, .10);
+    transition: background .5s var(--ease-fluid), color .5s var(--ease-fluid), border-color .5s var(--ease-fluid), box-shadow .5s var(--ease-fluid), transform .5s var(--ease-fluid);
+  }
+  .loop-node .dot { position: relative; transition: transform .5s var(--ease-spring), box-shadow .5s var(--ease-fluid); }
+  .loop-node.is-active .dot { transform: scale(1.25); box-shadow: 0 0 0 10px rgba(10, 110, 168, .16); }
+  .loop-node.is-active .dot::after { animation: nodePing 1.8s var(--ease-fluid) infinite; }
+  @keyframes nodePing {
+    0% { opacity: .7; transform: scale(.6); }
+    70%, 100% { opacity: 0; transform: scale(1.5); }
+  }
+  .loop-node.is-active .label {
+    background: var(--teal);
+    border-color: var(--teal);
+    color: var(--white);
+    transform: translateY(-1px);
+    box-shadow: 0 12px 30px rgba(10, 110, 168, .30);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .loop-node.is-active .dot::after { animation: none; }
   }
   .differentiator__closer {
     max-width: 850px;
@@ -722,9 +749,9 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at top left, rgba(113, 201, 242, .18), transparent 45%);
+    background: radial-gradient(260px circle at var(--mx, 30%) var(--my, 0%), rgba(113, 201, 242, .22), transparent 60%);
     opacity: 0;
-    transition: opacity .25s var(--ease-fluid);
+    transition: opacity .3s var(--ease-fluid);
   }
   .pillar-card:hover { transform: translateY(-8px); background: rgba(255, 255, 255, .085); border-color: rgba(113, 201, 242, .38); }
   .pillar-card:hover::before { opacity: 1; }
@@ -854,6 +881,103 @@
   .proof-grid { margin-top: 60px; }
   .proof .credential-strip { justify-content: center; border-top-color: var(--line-light); }
 
+  .proof-layout {
+    display: grid;
+    grid-template-columns: 1.05fr 1.35fr;
+    gap: 18px;
+    margin-top: 60px;
+    align-items: stretch;
+  }
+  .proof-feature {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: clamp(30px, 3.4vw, 48px);
+    border-radius: var(--radius-lg);
+    background: linear-gradient(155deg, var(--navy), var(--navy-2) 70%, #0a2647);
+    color: var(--cream);
+    box-shadow: var(--shadow-card);
+    isolation: isolate;
+  }
+  .proof-feature::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    width: 420px;
+    aspect-ratio: 1;
+    right: -160px;
+    top: -120px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(113, 201, 242, .28), transparent 64%);
+    animation: heroDrift 16s ease-in-out infinite alternate;
+  }
+  .proof-feature__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    width: fit-content;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: var(--teal-2);
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(113, 201, 242, .28);
+    background: rgba(113, 201, 242, .08);
+  }
+  .proof-feature__badge-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--teal-2);
+    box-shadow: 0 0 0 4px rgba(113, 201, 242, .18);
+  }
+  .proof-feature__year {
+    font-family: var(--font-sans);
+    font-weight: 800;
+    font-size: clamp(72px, 11vw, 132px);
+    line-height: .9;
+    letter-spacing: -0.045em;
+    margin-top: auto;
+    padding-top: 38px;
+    color: var(--white);
+  }
+  .proof-feature__name {
+    font-family: var(--font-sans);
+    font-weight: 800;
+    font-size: clamp(22px, 2.4vw, 32px);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    margin-top: 10px;
+    color: var(--teal-2);
+  }
+  .proof-feature__desc {
+    color: #c2cedb;
+    font-size: 15px;
+    line-height: 1.65;
+    margin-top: 16px;
+    max-width: 460px;
+  }
+  .proof-feature__mark {
+    position: absolute;
+    top: clamp(28px, 3.4vw, 46px);
+    right: clamp(28px, 3.4vw, 46px);
+    width: clamp(46px, 5vw, 64px);
+    color: var(--teal-2);
+    opacity: .9;
+  }
+  .proof-feature__mark svg { width: 100%; height: auto; }
+  .proof-support {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .proof-support .stat-strip__item { text-align: left; }
+  .proof-support .stat-strip__item:first-child { grid-column: 1 / -1; }
+  .proof-support .stat-strip__item:first-child .stat-strip__desc { max-width: 100%; }
+  .proof-support .stat-strip__desc { margin-left: 0; }
+
   .promise-list { display: grid; gap: 16px; margin-top: 58px; }
   .promise-item {
     display: grid;
@@ -954,15 +1078,28 @@
   .insight-card--text { display: flex; align-items: center; background: var(--navy); color: var(--cream); border-color: transparent; }
   .insight-card__quote { font-family: var(--font-serif); font-size: clamp(19px, 2vw, 24px); line-height: 1.35; }
 
-  .compare-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 48px; }
+  .compare-grid { position: relative; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 48px; }
   .compare-col {
-    padding: 28px;
+    padding: clamp(24px, 3vw, 34px);
     border-radius: var(--radius-md);
     border: 1px solid var(--line-dark);
+    transition: transform .5s var(--ease-fluid), box-shadow .5s var(--ease-fluid), border-color .5s var(--ease-fluid);
   }
   .compare-col--before { background: rgba(255, 255, 255, .03); }
-  .compare-col--after { background: rgba(113, 201, 242, .08); border-color: rgba(113, 201, 242, .3); }
+  .compare-col--before:hover { transform: translateY(-4px); }
+  .compare-col--after {
+    position: relative;
+    background:
+      linear-gradient(160deg, rgba(113, 201, 242, .12), rgba(113, 201, 242, .04)),
+      rgba(255, 255, 255, .02);
+    border-color: rgba(113, 201, 242, .34);
+    box-shadow: 0 24px 60px rgba(7, 27, 52, .34), inset 0 1px 0 rgba(255, 255, 255, .06);
+  }
+  .compare-col--after:hover { transform: translateY(-6px); border-color: rgba(113, 201, 242, .5); }
   .compare-col__label {
+    display: flex;
+    align-items: center;
+    gap: 9px;
     font-family: var(--font-mono);
     font-size: 11px;
     letter-spacing: .12em;
@@ -971,10 +1108,59 @@
     color: var(--muted);
   }
   .compare-col--after .compare-col__label { color: var(--teal-2); }
-  .compare-col__list { list-style: none; margin-top: 18px; display: grid; gap: 14px; }
-  .compare-col__list li { position: relative; padding-left: 20px; color: #c2cedb; font-size: 14px; line-height: 1.55; }
-  .compare-col__list li::before { content: ''; position: absolute; left: 0; top: .5em; width: 7px; height: 7px; border-radius: 50%; background: var(--muted); }
-  .compare-col--after .compare-col__list li::before { background: var(--teal-2); }
+  .compare-col--after .compare-col__label::after {
+    content: 'Recommended';
+    margin-left: auto;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: var(--teal-2);
+    color: var(--navy);
+    font-size: 9px;
+    letter-spacing: .1em;
+  }
+  .compare-col__list { list-style: none; margin-top: 22px; display: grid; gap: 15px; }
+  .compare-col__list li { position: relative; padding-left: 32px; color: #c2cedb; font-size: 14px; line-height: 1.55; }
+  .compare-col__list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 11px;
+  }
+  .compare-col--before .compare-col__list li::before {
+    background-color: rgba(167, 182, 199, .12);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a7b6c7' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M6 6l12 12M18 6L6 18'/%3E%3C/svg%3E");
+  }
+  .compare-col--after .compare-col__list li::before {
+    background-color: rgba(113, 201, 242, .16);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2371c9f2' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7'/%3E%3C/svg%3E");
+  }
+  .compare-vs {
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    top: 38px;
+    transform: translate(-50%, -50%);
+    width: 46px;
+    height: 46px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--navy);
+    border: 1px solid rgba(113, 201, 242, .3);
+    color: var(--teal-2);
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 850;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    box-shadow: 0 12px 30px rgba(7, 27, 52, .4);
+  }
 
   .rack-visual { justify-self: end; width: min(100%, 180px); opacity: .92; }
   .rack-visual svg { width: 100%; height: auto; }
@@ -1054,6 +1240,7 @@
     .grid-2, .operator-panel, .loop-panel, .section-intro--split { grid-template-columns: 1fr; }
     .hero-card { max-width: 650px; }
     .insight-grid, .compare-grid, .bento-grid, .proof-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .proof-layout { grid-template-columns: 1fr; }
     .rack-visual { justify-self: start; margin-top: 24px; width: min(100%, 140px); }
     .collab-visual { max-width: 420px; margin: 40px auto 0; }
   }
@@ -1080,6 +1267,9 @@
     .loop-node { min-width: 96px; }
     .loop-node .label { font-size: 10px; padding: 7px 8px; }
     .insight-grid, .compare-grid, .bento-grid, .proof-grid { grid-template-columns: 1fr; }
+    .compare-vs { display: none; }
+    .proof-support { grid-template-columns: 1fr; }
+    .proof-support .stat-strip__item:first-child { grid-column: auto; }
     .cta__steps { grid-template-columns: 1fr; text-align: left; }
   }
   @media (max-width: 430px) {
@@ -1217,6 +1407,7 @@
           <li>Reporting is a status update, not a record.</li>
         </ul>
       </div>
+      <span class="compare-vs" aria-hidden="true">vs</span>
       <div class="compare-col compare-col--after reveal" data-delay="1">
         <p class="compare-col__label">Managed by IMS</p>
         <ul class="compare-col__list">
@@ -1424,27 +1615,33 @@
     <p class="eyebrow reveal">Proof</p>
     <h2 class="headline headline--section reveal" data-delay="1">We’ve Earned the Right to Say This.</h2>
     <p class="subhead reveal" data-delay="2">Independently verified. Not self-declared.</p>
-    <div class="stat-strip proof-grid">
-      <article class="stat-strip__item reveal">
-        <p class="stat-strip__figure" data-count="2025">2025</p>
-        <p class="stat-strip__label">Integrator of the Year</p>
-        <p class="stat-strip__desc">NSCA, Commercial Integrator, and Security Sales &amp; Integration, the same year. The industry’s top honor.</p>
+    <div class="proof-layout">
+      <article class="proof-feature reveal">
+        <span class="proof-feature__badge"><span class="proof-feature__badge-dot" aria-hidden="true"></span>The Industry's Top Honor</span>
+        <p class="proof-feature__year" data-count="2025">2025</p>
+        <p class="proof-feature__name">Integrator of the Year</p>
+        <p class="proof-feature__desc">Named by NSCA, Commercial Integrator, and Security Sales &amp; Integration, the same year. Awarded, not self-declared.</p>
+        <div class="proof-feature__mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 2.5l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L12 17.3 6.2 20.8l1.6-6.6L2.6 9.8l6.8-.5L12 2.5z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+        </div>
       </article>
-      <article class="stat-strip__item reveal" data-delay="1">
-        <p class="stat-strip__figure">ISO</p>
-        <p class="stat-strip__label">27001:2022 Certified</p>
-        <p class="stat-strip__desc">Information security management certified to the international standard your compliance team will ask about.</p>
-      </article>
-      <article class="stat-strip__item reveal" data-delay="2">
-        <p class="stat-strip__figure" data-count="30" data-suffix="+">30+</p>
-        <p class="stat-strip__label">Years of AV Experience</p>
-        <p class="stat-strip__desc">Three decades of integration depth, boardroom to broadcast.</p>
-      </article>
-      <article class="stat-strip__item reveal" data-delay="3">
-        <p class="stat-strip__figure" data-count="5" data-suffix="x">5x</p>
-        <p class="stat-strip__label">Consecutive Commercial Integrator Awards</p>
-        <p class="stat-strip__desc">Five straight years of named project recognition, 2021 through 2025, not a one-time honor.</p>
-      </article>
+      <div class="proof-support">
+        <article class="stat-strip__item reveal" data-delay="1">
+          <p class="stat-strip__figure">ISO</p>
+          <p class="stat-strip__label">27001:2022 Certified</p>
+          <p class="stat-strip__desc">Information security management certified to the international standard your compliance team will ask about.</p>
+        </article>
+        <article class="stat-strip__item reveal" data-delay="2">
+          <p class="stat-strip__figure" data-count="30" data-suffix="+">30+</p>
+          <p class="stat-strip__label">Years of AV Experience</p>
+          <p class="stat-strip__desc">Three decades of integration depth, boardroom to broadcast.</p>
+        </article>
+        <article class="stat-strip__item reveal" data-delay="3">
+          <p class="stat-strip__figure" data-count="5" data-suffix="x">5x</p>
+          <p class="stat-strip__label">Consecutive Commercial Integrator Awards</p>
+          <p class="stat-strip__desc">Five straight years of named recognition, 2021 through 2025, not a one-time honor.</p>
+        </article>
+      </div>
     </div>
     <div class="credential-strip reveal" style="justify-content:center; margin-top:56px;">
       <span>Inc. 5000 Fastest-Growing Private Companies</span>
@@ -1580,11 +1777,25 @@
 
   const loopDiagram = document.querySelector('.loop-diagram');
   if (loopDiagram) {
+    const loopNodes = [...loopDiagram.querySelectorAll('.loop-node')];
+    let cycleTimer = null;
+    const startNodeCycle = () => {
+      if (prefersReduced || cycleTimer || !loopNodes.length) return;
+      let idx = 0;
+      const step = () => {
+        loopNodes.forEach((n) => n.classList.remove('is-active'));
+        loopNodes[idx].classList.add('is-active');
+        idx = (idx + 1) % loopNodes.length;
+      };
+      step();
+      cycleTimer = window.setInterval(step, 1500);
+    };
     const playLoop = () => {
       loopDiagram.querySelector('.loop-ring')?.classList.add('is-drawn');
-      loopDiagram.querySelectorAll('.loop-node').forEach((node, i) => {
+      loopNodes.forEach((node, i) => {
         window.setTimeout(() => node.classList.add('is-visible'), prefersReduced ? 0 : i * 120);
       });
+      window.setTimeout(startNodeCycle, prefersReduced ? 0 : loopNodes.length * 120 + 400);
     };
     if ('IntersectionObserver' in window && !prefersReduced) {
       const loopObserver = new IntersectionObserver((entries) => {
@@ -1611,6 +1822,17 @@
         btn.style.transform = `translate(${x}px, ${y}px)`;
       });
       btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
+    });
+  }
+
+  // Cursor-following spotlight on pillar cards (paints a gradient, no layout).
+  if (!prefersReduced && window.matchMedia('(pointer: fine)').matches) {
+    document.querySelectorAll('.pillar-card').forEach((card) => {
+      card.addEventListener('pointermove', (e) => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--mx', `${((e.clientX - rect.left) / rect.width) * 100}%`);
+        card.style.setProperty('--my', `${((e.clientY - rect.top) / rect.height) * 100}%`);
+      });
     });
   }
 
