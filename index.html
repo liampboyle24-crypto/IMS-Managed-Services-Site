@@ -1237,7 +1237,7 @@
         <p class="subhead reveal" data-delay="2">The same handful of issues take down rooms again and again. In our model, each one has a defined owner.</p>
       </div>
       <div class="rack-visual reveal" data-delay="3">
-        <svg viewBox="0 0 200 260" role="img" aria-label="Illustration of a monitored AV equipment rack with status indicators">
+        <svg viewBox="0 0 200 260" role="img" aria-label="Illustration of a monitored AV equipment rack with status indicators" data-parallax="22">
           <rect x="24" y="12" width="152" height="236" rx="12" fill="rgba(255,255,255,.04)" stroke="var(--teal-2)" stroke-width="2"></rect>
           <line x1="24" y1="60" x2="176" y2="60" stroke="var(--line-dark)" stroke-width="1.5"></line>
           <line x1="24" y1="108" x2="176" y2="108" stroke="var(--line-dark)" stroke-width="1.5"></line>
@@ -1349,7 +1349,7 @@
       </div>
     </div>
     <div class="collab-visual reveal" data-delay="4">
-      <svg viewBox="0 0 320 260" role="img" aria-label="Illustration of a connected meeting room with a video display and participants">
+      <svg viewBox="0 0 320 260" role="img" aria-label="Illustration of a connected meeting room with a video display and participants" data-parallax="26">
         <rect x="40" y="20" width="240" height="120" rx="10" fill="rgba(10,110,168,.06)" stroke="var(--teal)" stroke-width="2"></rect>
         <rect x="56" y="36" width="100" height="44" rx="4" fill="none" stroke="var(--teal)" stroke-width="1.5" opacity=".55"></rect>
         <rect x="164" y="36" width="100" height="44" rx="4" fill="none" stroke="var(--teal)" stroke-width="1.5" opacity=".55"></rect>
@@ -1430,17 +1430,17 @@
         <p class="stat-strip__label">Integrator of the Year</p>
         <p class="stat-strip__desc">NSCA, Commercial Integrator, and Security Sales &amp; Integration, the same year. The industry’s top honor.</p>
       </article>
-      <article class="stat-strip__item reveal">
+      <article class="stat-strip__item reveal" data-delay="1">
         <p class="stat-strip__figure">ISO</p>
         <p class="stat-strip__label">27001:2022 Certified</p>
         <p class="stat-strip__desc">Information security management certified to the international standard your compliance team will ask about.</p>
       </article>
-      <article class="stat-strip__item reveal">
+      <article class="stat-strip__item reveal" data-delay="2">
         <p class="stat-strip__figure" data-count="30" data-suffix="+">30+</p>
         <p class="stat-strip__label">Years of AV Experience</p>
         <p class="stat-strip__desc">Three decades of integration depth, boardroom to broadcast.</p>
       </article>
-      <article class="stat-strip__item reveal">
+      <article class="stat-strip__item reveal" data-delay="3">
         <p class="stat-strip__figure" data-count="5" data-suffix="x">5x</p>
         <p class="stat-strip__label">Consecutive Commercial Integrator Awards</p>
         <p class="stat-strip__desc">Five straight years of named project recognition, 2021 through 2025, not a one-time honor.</p>
@@ -1458,9 +1458,9 @@
     <p class="subhead reveal" data-delay="2">One outcome. Four ways to feel it.</p>
     <div class="promise-list">
       <div class="promise-item reveal"><span class="promise-item__roman">01</span><p class="promise-item__line">Your users stop thinking about AV, because it just works.</p><span class="promise-item__who">Users</span></div>
-      <div class="promise-item reveal"><span class="promise-item__roman">02</span><p class="promise-item__line">Your IT team gets its time back.</p><span class="promise-item__who">IT</span></div>
-      <div class="promise-item reveal"><span class="promise-item__roman">03</span><p class="promise-item__line">Your leadership sees the ROI, not just the invoice.</p><span class="promise-item__who">Leadership</span></div>
-      <div class="promise-item reveal"><span class="promise-item__roman">04</span><p class="promise-item__line">Every renewal is earned. Not assumed.</p><span class="promise-item__who">IMS</span></div>
+      <div class="promise-item reveal" data-delay="1"><span class="promise-item__roman">02</span><p class="promise-item__line">Your IT team gets its time back.</p><span class="promise-item__who">IT</span></div>
+      <div class="promise-item reveal" data-delay="2"><span class="promise-item__roman">03</span><p class="promise-item__line">Your leadership sees the ROI, not just the invoice.</p><span class="promise-item__who">Leadership</span></div>
+      <div class="promise-item reveal" data-delay="3"><span class="promise-item__roman">04</span><p class="promise-item__line">Every renewal is earned. Not assumed.</p><span class="promise-item__who">IMS</span></div>
     </div>
   </div>
 </section>
@@ -1612,6 +1612,26 @@
       });
       btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
     });
+  }
+
+  // Gentle scroll parallax on decorative section visuals (GPU-safe, transform-only).
+  const parallaxEls = [...document.querySelectorAll('[data-parallax]')];
+  if (!prefersReduced && parallaxEls.length && window.matchMedia('(min-width: 760px)').matches) {
+    let ticking = false;
+    const applyParallax = () => {
+      const vh = window.innerHeight || document.documentElement.clientHeight;
+      parallaxEls.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.bottom < 0 || rect.top > vh) return;
+        const progress = (rect.top + rect.height / 2 - vh / 2) / vh; // -0.5..0.5 across viewport
+        const depth = parseFloat(el.dataset.parallax) || 18;
+        el.style.transform = `translate3d(0, ${(-progress * depth).toFixed(2)}px, 0)`;
+      });
+      ticking = false;
+    };
+    const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(applyParallax); } };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    applyParallax();
   }
 })();
 </script>
