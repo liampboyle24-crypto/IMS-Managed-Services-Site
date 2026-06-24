@@ -1008,6 +1008,21 @@
   @media (prefers-reduced-motion: reduce) {
     .pillar-card.reveal .pillar-card__icon { opacity: 1; transform: none; transition: none; }
   }
+  /* Pointer-driven 3D tilt — composes the -8px hover lift with rotation fed by JS (--rx/--ry).
+     Scoped to .is-visible:hover so it outranks the reveal system's resting transform:none. */
+  @media (hover: hover) and (pointer: fine) {
+    .js .pillar-card.is-visible {
+      transform-style: preserve-3d;
+      transition: transform .2s var(--ease-fluid), background .25s var(--ease-fluid), border-color .25s var(--ease-fluid);
+    }
+    .js .pillar-card.is-visible:hover {
+      transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(-8px);
+    }
+    .pillar-card.is-visible:hover .pillar-card__icon { transform: translateY(-2px) translateZ(26px) scale(1.04); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .js .pillar-card.is-visible:hover { transform: translateY(-8px); }
+  }
   .pillar-card__icon .accent { stroke: var(--gold); }
   .pillar-card__icon .accent--fill { fill: var(--gold); }
   .pillar-card__top { display: flex; justify-content: space-between; gap: 18px; align-items: center; }
@@ -2495,6 +2510,25 @@
         const rect = card.getBoundingClientRect();
         card.style.setProperty('--mx', `${((e.clientX - rect.left) / rect.width) * 100}%`);
         card.style.setProperty('--my', `${((e.clientY - rect.top) / rect.height) * 100}%`);
+      });
+    });
+  }
+
+  // Pointer-driven 3D tilt on the pillar cards (transform-only, GPU-safe).
+  if (!prefersReduced && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    const MAX_Y = 7; // left/right tilt, deg
+    const MAX_X = 6; // up/down tilt, deg
+    document.querySelectorAll('.pillar-card').forEach((card) => {
+      card.addEventListener('pointermove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const px = (e.clientX - rect.left) / rect.width;  // 0..1
+        const py = (e.clientY - rect.top) / rect.height;  // 0..1
+        card.style.setProperty('--ry', `${((px - .5) * MAX_Y).toFixed(2)}deg`);
+        card.style.setProperty('--rx', `${((.5 - py) * MAX_X).toFixed(2)}deg`);
+      });
+      card.addEventListener('pointerleave', () => {
+        card.style.setProperty('--rx', '0deg');
+        card.style.setProperty('--ry', '0deg');
       });
     });
   }
