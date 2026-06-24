@@ -20,35 +20,11 @@ Work primarily in:
 
 * `index.html`
 
-Keep the project simple. This should remain a static HTML page unless there is a clear reason to separate CSS or JavaScript.
-
 ## Available Skills
 
 Several design and frontend skills are available in `.claude/skills/`.
-
-Use them selectively and intentionally. Do not blindly combine every skill at once.
-
-Recommended skill usage sequence:
-
-1. `/frontend-design`
-   Use for layout, responsive structure, typography, visual hierarchy, and frontend polish.
-
-2. `/emil-design-eng`
-   Use for thoughtful design engineering, implementation quality, and high-end interaction details.
-
-3. `/taste-skill`
-   Use as a final taste pass to remove anything generic, overdesigned, inconsistent, or visually weak.
-
-4. `/redesign-skill`
-   Use when a section needs to be rebuilt rather than lightly edited.
-
-5. `/review-animations`
-   Use only if animation or interaction improvements are appropriate. Do not add animation for decoration alone.
-
-6. `/imagegen-frontend-web` and `/image-to-code-skill`
-   Use only if visual references, mockups, or screenshots are part of the task.
-
-Avoid using `/brutalist-skill` unless explicitly asked. This project should be polished, professional, and partner-facing, not intentionally harsh or experimental.
+Use them selectively and intentionally. Prioritize high-level visual impact.
+Smooth animations and dynamic elements are appreciated
 
 ## Design Standards
 
@@ -57,13 +33,13 @@ Prioritize:
 * Clear section hierarchy
 * Strong typography
 * Clean spacing and alignment
-* Responsive mobile layout
 * High contrast and legibility
 * Premium visual rhythm
 * Credible B2B messaging
 * Clear calls to action
-* Visual restraint
+* Dynamic animations or transitions between sections
 * Polished details that feel intentional
+* Include image assets in references foler where appropriate
 
 Avoid:
 
@@ -93,10 +69,9 @@ If there is a top CTA, it should scroll to the contact section. Do not imply a s
 Before editing:
 
 1. Read this file.
-2. Read `docs/design-brief.md` if present.
-3. Inspect `index.html`.
-4. Identify the strongest and weakest sections.
-5. Create a concise revision plan.
+2. Inspect `index.html`.
+3. Identify the strongest and weakest sections.
+4. Create a revision plan.
 
 Then:
 
