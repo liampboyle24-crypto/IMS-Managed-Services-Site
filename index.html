@@ -573,13 +573,30 @@
     line-height: 1.7;
   }
 
-  .operator-panel {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(280px, 430px);
-    gap: clamp(28px, 5vw, 72px);
-    align-items: center;
-    margin-top: 54px;
+  .shift {
+    position: relative;
+    overflow: hidden;
   }
+  .shift__bg {
+    position: absolute;
+    inset: -8% -4%;
+    z-index: 0;
+    background-image: url('references/generated/problem (2).png');
+    background-size: cover;
+    background-position: center 40%;
+    filter: saturate(.7) contrast(1.05);
+    opacity: .18;
+    will-change: transform;
+  }
+  .shift__bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, var(--navy) 0%, rgba(0, 28, 56, .3) 30%, rgba(0, 28, 56, .3) 70%, var(--navy) 100%),
+      linear-gradient(90deg, rgba(0, 28, 56, .5) 0%, transparent 40%, transparent 60%, rgba(0, 28, 56, .5) 100%);
+  }
+  .shift > .container { position: relative; z-index: 1; }
   .operator-copy {
     font-family: var(--font-sans);
     font-size: clamp(22px, 2.4vw, 36px);
@@ -588,42 +605,9 @@
     letter-spacing: -0.01em;
     max-width: 760px;
     text-wrap: balance;
+    margin-top: 42px;
   }
-  .operator-card {
-    position: relative;
-    overflow: hidden;
-    border-radius: var(--radius-lg);
-    color: var(--cream);
-    background: linear-gradient(180deg, rgba(255, 255, 255, .04), rgba(255, 255, 255, .015));
-    border: 1px solid rgba(255, 255, 255, .08);
-    box-shadow: var(--shadow-card);
-    display: flex;
-    flex-direction: column;
-  }
-  .operator-card__media {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    overflow: hidden;
-  }
-  .operator-card__media img {
-    width: 100%;
-    height: 110%;
-    object-fit: cover;
-    object-position: center 35%;
-    will-change: transform;
-    transition: filter .8s ease;
-  }
-  .operator-card:hover .operator-card__media img { filter: saturate(1.08) contrast(1.02); }
-  .operator-card__media::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, transparent 55%, rgba(0, 24, 51, .55) 100%);
-    pointer-events: none;
-  }
-  .operator-card__body { padding: 26px 28px 28px; }
-  .operator-card__label {
+  .shift-closer {
     display: inline-flex;
     align-items: center;
     gap: 10px;
@@ -633,21 +617,14 @@
     text-transform: uppercase;
     color: var(--gold-2);
     font-weight: 850;
+    margin-top: 28px;
   }
-  .operator-card__label::before {
+  .shift-closer::before {
     content: '';
     display: inline-block;
     width: 22px;
     height: 1px;
     background: var(--gold);
-  }
-  .operator-card__quote {
-    font-family: var(--font-sans);
-    font-weight: 800;
-    font-size: clamp(20px, 1.7vw, 26px);
-    line-height: 1.22;
-    letter-spacing: -0.015em;
-    margin-top: 12px;
   }
 
   .loop-panel {
@@ -1322,49 +1299,54 @@
   .bento-card:hover .bento-card__arrow { transform: translateX(4px); }
   .bento-card__response { color: #c2cedb; font-size: 13.5px; line-height: 1.6; }
 
-  .lever-list { display: grid; gap: 22px; margin-top: 32px; max-width: 560px; }
-  .lever-item { padding-top: 18px; border-top: 1px solid var(--line-light); }
-  .lever-item:first-child { border-top: none; padding-top: 0; }
-  .lever-item__title { font-weight: 850; color: var(--ink); }
-  .lever-item__desc { color: var(--slate); font-size: 15px; line-height: 1.65; margin-top: 8px; }
 
-  .collab-visual { position: relative; width: 100%; }
-  .collab-visual svg { width: 100%; height: auto; }
-  .growth-arc__labels {
-    position: absolute;
-    inset: 0;
-    list-style: none;
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: .06em;
-    text-transform: uppercase;
+  .growth-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    margin-top: 60px;
+    counter-reset: growth;
+  }
+  .growth-card {
+    position: relative;
+    padding: clamp(28px, 3vw, 44px);
+    border-right: 1px solid var(--line-light);
+    transition: background .4s var(--ease-fluid);
+  }
+  .growth-card:last-child { border-right: none; }
+  .growth-card:hover { background: rgba(0, 45, 86, .04); }
+  .growth-card__num {
+    display: block;
+    font-family: var(--font-sans);
+    font-weight: 800;
+    font-size: clamp(38px, 4.5vw, 56px);
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: var(--navy);
+    opacity: .12;
+    margin-bottom: 18px;
+    counter-increment: growth;
+  }
+  .growth-card__num::before { content: "0" counter(growth); }
+  .growth-card__title {
+    font-family: var(--font-sans);
+    font-weight: 800;
+    font-size: clamp(17px, 1.5vw, 21px);
+    line-height: 1.18;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+  }
+  .growth-card__rule {
+    display: block;
+    width: 28px;
+    height: 2px;
+    background: var(--gold);
+    margin: 16px 0;
+  }
+  .growth-card__desc {
     color: var(--slate);
-  }
-  .growth-arc__labels li { position: absolute; width: 120px; text-align: center; transform: translateX(-50%); }
-  .growth-arc__labels li:nth-child(1) { left: 16.6%; top: 82%; }
-  .growth-arc__labels li:nth-child(2) { left: 50%; top: 54%; }
-  .growth-arc__labels li:nth-child(3) { left: 83.3%; top: 27%; color: var(--navy); font-weight: 800; }
-  .growth-arc__line { stroke-dasharray: 6 4; }
-  .reveal.is-visible .growth-arc__line { animation: growthArcDraw 1.6s cubic-bezier(0.32, 0.72, 0, 1) .2s both; }
-  .reveal.is-visible .growth-arc__halo { transform-origin: 400px 80px; animation: growthArcHalo 2.4s cubic-bezier(0.32, 0.72, 0, 1) .9s both; }
-  .reveal.is-visible .growth-arc__apex { transform-origin: 400px 80px; animation: growthArcApex 1s cubic-bezier(0.32, 0.72, 0, 1) 1s both; }
-  @keyframes growthArcDraw {
-    0% { stroke-dashoffset: 160; opacity: 0; }
-    100% { stroke-dashoffset: 0; opacity: .55; }
-  }
-  @keyframes growthArcApex {
-    0% { transform: scale(.4); opacity: 0; }
-    100% { transform: scale(1); opacity: 1; }
-  }
-  @keyframes growthArcHalo {
-    0% { transform: scale(.4); opacity: 0; }
-    60% { opacity: .22; }
-    100% { transform: scale(1.05); opacity: .14; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .reveal.is-visible .growth-arc__line,
-    .reveal.is-visible .growth-arc__halo,
-    .reveal.is-visible .growth-arc__apex { animation: none; }
+    font-size: 15px;
+    line-height: 1.65;
   }
 
   .proof-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
@@ -1416,12 +1398,14 @@
   @media (max-width: 1100px) {
     .site-nav__links { display: none; }
     .pillar-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .grid-2, .operator-panel, .loop-panel, .section-intro--split { grid-template-columns: 1fr; }
+    .grid-2, .loop-panel, .section-intro--split { grid-template-columns: 1fr; }
     .hero-card { max-width: 650px; }
     .insight-grid, .compare-grid, .bento-grid, .proof-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .proof-layout { grid-template-columns: 1fr; }
     .rack-visual { justify-self: start; margin-top: 24px; width: min(100%, 140px); }
-    .collab-visual { max-width: 420px; margin: 40px auto 0; }
+    .growth-strip { grid-template-columns: 1fr; }
+    .growth-card { border-right: none; border-bottom: 1px solid var(--line-light); }
+    .growth-card:last-child { border-bottom: none; }
   }
   @media (max-width: 760px) {
     .site-nav { top: 10px; width: calc(100% - 20px); border-radius: 22px; }
@@ -1612,19 +1596,12 @@
   </div>
 </section>
 <section id="shift" class="section section--navy shift" data-section="Shift">
+  <div class="shift__bg" aria-hidden="true" data-parallax="30"></div>
   <div class="container">
     <h2 class="headline headline--section reveal">We Don’t Install AV. <span class="headline--accent">We Run It.</span></h2>
     <p class="subhead reveal" data-delay="2">A performance partnership, not a project handoff.</p>
-    <div class="operator-panel">
-      <p class="operator-copy reveal" data-delay="3">We keep people connected, IT focused on strategy, and technology accountable to the value it was bought to deliver.</p>
-      <aside class="operator-card reveal" data-delay="4">
-        <div class="operator-card__media" aria-hidden="true"><img src="references/Boardroom_CollaborationSpace.png" alt="" data-parallax="22"></div>
-        <div class="operator-card__body">
-          <p class="operator-card__label">Positioning</p>
-          <p class="operator-card__quote">That’s the difference between a vendor and an operator.</p>
-        </div>
-      </aside>
-    </div>
+    <p class="operator-copy reveal" data-delay="3">We keep people connected, IT focused on strategy, and technology accountable to the value it was bought to deliver.</p>
+    <p class="shift-closer reveal" data-delay="3">That’s the difference between a vendor and an operator.</p>
     <div class="compare-grid">
       <div class="compare-col compare-col--before reveal">
         <p class="compare-col__label">Reactive AV</p>
@@ -1728,41 +1705,29 @@
   </div>
 </section>
 <section id="growth" class="section section--cream" data-section="Growth Lever">
-  <div class="container grid-2">
-    <div>
-      <p class="eyebrow reveal">Beyond Uptime</p>
-      <h2 class="headline headline--section reveal" data-delay="1">Reliable AV Is a Growth Lever, <span class="headline--accent">Not Just a Cost Center.</span></h2>
-      <p class="subhead reveal" data-delay="2">When meeting technology works, hybrid and in-person collaboration actually function the way they’re supposed to.</p>
-      <!-- Hybrid-work and collaboration ROI statistics (e.g., specific productivity or revenue-per-employee percentages) were intentionally left out of this section. Figures returned inconsistent values across sources during verification, so this section uses qualitative language only. Revisit if a single authoritative source is confirmed. -->
-      <div class="lever-list reveal" data-delay="3">
-        <div class="lever-item">
-          <p class="lever-item__title">Faster decisions</p>
-          <p class="lever-item__desc">Meetings that start on time and run without friction keep momentum on the things that actually move the business forward.</p>
-        </div>
-        <div class="lever-item">
-          <p class="lever-item__title">Stronger first impressions</p>
-          <p class="lever-item__desc">Clients, candidates, and board members form an opinion of a company partly from how its technology performs in the room.</p>
-        </div>
-        <div class="lever-item">
-          <p class="lever-item__title">Less hidden IT cost</p>
-          <p class="lever-item__desc">Every hour your IT team spends untangling a screen is an hour not spent on higher-value work.</p>
-        </div>
-      </div>
-    </div>
-    <div class="collab-visual reveal" data-delay="4">
-      <svg class="growth-arc" viewBox="0 0 480 360" role="img" aria-label="Diagram showing reliable AV leading from decisions to impressions to lower cost" data-parallax="26">
-        <path class="growth-arc__line" d="M80 280 C 150 280, 170 200, 240 180 C 310 160, 330 100, 400 80" fill="none" stroke="var(--navy)" stroke-width="1.75" stroke-dasharray="6 4" opacity=".55" pathLength="100"></path>
-        <circle class="growth-arc__node" cx="80" cy="280" r="9" fill="var(--navy)"></circle>
-        <circle class="growth-arc__node" cx="240" cy="180" r="9" fill="var(--navy)"></circle>
-        <circle class="growth-arc__halo" cx="400" cy="80" r="34" fill="var(--gold)" opacity=".14"></circle>
-        <circle cx="400" cy="80" r="22" fill="none" stroke="var(--navy)" stroke-width="1.5" opacity=".55"></circle>
-        <circle class="growth-arc__apex" cx="400" cy="80" r="11" fill="var(--gold)" stroke="var(--navy)" stroke-width="1.5"></circle>
-      </svg>
-      <ul class="growth-arc__labels">
-        <li>Faster decisions</li>
-        <li>Stronger impressions</li>
-        <li>Lower hidden cost</li>
-      </ul>
+  <div class="container">
+    <p class="eyebrow reveal">Beyond Uptime</p>
+    <h2 class="headline headline--section reveal" data-delay="1">Reliable AV Is a Growth Lever, <span class="headline--accent">Not Just a Cost Center.</span></h2>
+    <p class="subhead reveal" data-delay="2">When meeting technology works, hybrid and in-person collaboration actually function the way they’re supposed to.</p>
+    <div class="growth-strip">
+      <article class="growth-card reveal" data-delay="1">
+        <span class="growth-card__num" aria-hidden="true"></span>
+        <p class="growth-card__title">Faster decisions</p>
+        <span class="growth-card__rule" aria-hidden="true"></span>
+        <p class="growth-card__desc">Meetings that start on time and run without friction keep momentum on the things that actually move the business forward.</p>
+      </article>
+      <article class="growth-card reveal" data-delay="2">
+        <span class="growth-card__num" aria-hidden="true"></span>
+        <p class="growth-card__title">Stronger first impressions</p>
+        <span class="growth-card__rule" aria-hidden="true"></span>
+        <p class="growth-card__desc">Clients, candidates, and board members form an opinion of a company partly from how its technology performs in the room.</p>
+      </article>
+      <article class="growth-card reveal" data-delay="3">
+        <span class="growth-card__num" aria-hidden="true"></span>
+        <p class="growth-card__title">Less hidden IT cost</p>
+        <span class="growth-card__rule" aria-hidden="true"></span>
+        <p class="growth-card__desc">Every hour your IT team spends untangling a screen is an hour not spent on higher-value work.</p>
+      </article>
     </div>
   </div>
 </section>
