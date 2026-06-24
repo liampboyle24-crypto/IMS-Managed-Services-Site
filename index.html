@@ -274,6 +274,15 @@
     background: radial-gradient(circle, rgba(10, 110, 168, .22), transparent 66%);
     filter: blur(4px);
     opacity: .75;
+    animation: heroDrift 18s ease-in-out infinite alternate;
+    will-change: transform;
+  }
+  @keyframes heroDrift {
+    0% { transform: translate(0, 0) scale(1); opacity: .62; }
+    100% { transform: translate(-46px, 38px) scale(1.08); opacity: .82; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero::after { animation: none; }
   }
   .hero__logo { width: clamp(118px, 11vw, 160px); margin-bottom: 32px; }
   .hero__kicker {
@@ -897,27 +906,35 @@
   .cta__actions { display: flex; gap: 16px; align-items: center; margin-top: 38px; flex-wrap: wrap; justify-content: center; }
   .cta__footer { font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; color: var(--slate); margin-top: 56px; text-transform: uppercase; }
 
-  .console-stages { display: flex; gap: 8px; margin-bottom: 18px; flex-wrap: wrap; }
-  .console-stage {
+  .hero-card__pulse { margin-top: 30px; display: grid; justify-items: center; gap: 10px; }
+  .hero-card__pulse svg { width: min(100%, 168px); height: auto; overflow: visible; }
+  .pulse-ring {
+    fill: none;
+    stroke: var(--teal);
+    stroke-width: 1.4;
+    transform-origin: 120px 120px;
+    opacity: 0;
+    animation: pulseExpand 4.8s var(--ease-fluid) infinite;
+  }
+  .pulse-ring--2 { animation-delay: 1.1s; }
+  .pulse-ring--3 { animation-delay: 2.2s; }
+  .pulse-core { fill: var(--teal); }
+  @keyframes pulseExpand {
+    0% { transform: scale(.55); opacity: 0; }
+    12% { opacity: .55; }
+    78% { opacity: 0; }
+    100% { transform: scale(1.05); opacity: 0; }
+  }
+  .hero-card__pulse-label {
     font-family: var(--font-mono);
-    font-size: 10px;
+    font-size: 11px;
     letter-spacing: .1em;
     text-transform: uppercase;
-    font-weight: 850;
     color: var(--slate);
-    padding: 7px 11px;
-    border-radius: 999px;
-    border: 1px solid var(--line-light);
-    background: rgba(255, 255, 255, .5);
-    animation: stagePulse 8s ease-in-out infinite;
+    font-weight: 800;
   }
-  .console-stage:nth-child(1) { animation-delay: 0s; }
-  .console-stage:nth-child(2) { animation-delay: -2s; }
-  .console-stage:nth-child(3) { animation-delay: -4s; }
-  .console-stage:nth-child(4) { animation-delay: -6s; }
-  @keyframes stagePulse {
-    0%, 76%, 100% { color: var(--slate); background: rgba(255, 255, 255, .5); border-color: var(--line-light); }
-    8%, 18% { color: var(--white); background: var(--teal); border-color: var(--teal); }
+  @media (prefers-reduced-motion: reduce) {
+    .pulse-ring { animation: none; opacity: .4; transform: none; }
   }
 
   .insight-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 56px; }
@@ -1004,77 +1021,6 @@
   }
   .cta__step span:last-child { color: var(--slate); font-size: 14px; line-height: 1.5; }
 
-  .status-dash {
-    margin-top: 28px;
-    border-radius: var(--radius-md);
-    background: linear-gradient(135deg, var(--navy), #081e38);
-    overflow: hidden;
-  }
-  .status-dash__header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 14px 18px;
-    border-bottom: 1px solid rgba(255,255,255,.08);
-  }
-  .status-dash__dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #34d399;
-    box-shadow: 0 0 8px rgba(52, 211, 153, .5);
-    animation: pulse-dot 3s ease-in-out infinite;
-  }
-  @keyframes pulse-dot {
-    0%, 100% { opacity: 1; box-shadow: 0 0 8px rgba(52, 211, 153, .5); }
-    50% { opacity: .7; box-shadow: 0 0 16px rgba(52, 211, 153, .7); }
-  }
-  .status-dash__title {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    color: #34d399;
-    font-weight: 700;
-  }
-  .status-dash__rows { padding: 6px 0; }
-  .status-dash__row {
-    display: grid;
-    grid-template-columns: 18px 1fr auto;
-    gap: 12px;
-    align-items: center;
-    padding: 10px 18px;
-  }
-  .status-dash__row-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: #34d399;
-  }
-  .status-dash__row-dot--warn { background: #fbbf24; }
-  .status-dash__row-label {
-    font-family: var(--font-mono);
-    font-size: 12px;
-    color: #c5d0dd;
-    letter-spacing: .04em;
-  }
-  .status-dash__row-val {
-    font-family: var(--font-mono);
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--cream);
-    text-align: right;
-  }
-  .status-dash__footer {
-    padding: 12px 18px;
-    border-top: 1px solid rgba(255,255,255,.06);
-    font-family: var(--font-mono);
-    font-size: 10px;
-    color: var(--muted);
-    letter-spacing: .06em;
-    text-transform: uppercase;
-  }
-
   .section-divider {
     width: min(100%, 1180px);
     margin: 0 auto;
@@ -1091,7 +1037,7 @@
     font-size: 10px;
     letter-spacing: .1em;
     text-transform: uppercase;
-    color: #34d399;
+    color: var(--teal-2);
     font-weight: 700;
   }
   .bento-card__status-dot {
@@ -1099,6 +1045,7 @@
     height: 6px;
     border-radius: 50%;
     background: currentColor;
+    box-shadow: 0 0 0 3px rgba(113, 201, 242, .14);
   }
 
   @media (max-width: 1100px) {
@@ -1184,13 +1131,7 @@
         <span>ISO/IEC 27001:2022 Certified</span>
       </div>
     </div>
-    <aside class="hero-card reveal" data-delay="4" aria-label="Managed services operating loop summary">
-      <div class="console-stages" aria-hidden="true">
-        <span class="console-stage">Monitor</span>
-        <span class="console-stage">Detect</span>
-        <span class="console-stage">Resolve</span>
-        <span class="console-stage">Report</span>
-      </div>
+    <aside class="hero-card reveal" data-delay="4" aria-label="The IMS operating loop">
       <p class="hero-card__label">Operating model</p>
       <h2 class="hero-card__title">From installed rooms to accountable performance.</h2>
       <ul class="hero-card__list">
@@ -1198,17 +1139,14 @@
         <li data-step="02"><span>Detect issues before meetings become support events.</span></li>
         <li data-step="03"><span>Resolve, report, recommend, and refresh with a clear owner.</span></li>
       </ul>
-      <div class="status-dash">
-        <div class="status-dash__header">
-          <span class="status-dash__dot" aria-hidden="true"></span>
-          <span class="status-dash__title">All systems operational</span>
-        </div>
-        <div class="status-dash__rows">
-          <div class="status-dash__row"><span class="status-dash__row-dot" aria-hidden="true"></span><span class="status-dash__row-label">Fleet uptime</span><span class="status-dash__row-val">99.2%</span></div>
-          <div class="status-dash__row"><span class="status-dash__row-dot" aria-hidden="true"></span><span class="status-dash__row-label">Active rooms monitored</span><span class="status-dash__row-val">LIVE</span></div>
-          <div class="status-dash__row"><span class="status-dash__row-dot status-dash__row-dot--warn" aria-hidden="true"></span><span class="status-dash__row-label">Pending actions</span><span class="status-dash__row-val">0</span></div>
-        </div>
-        <div class="status-dash__footer">4Sight monitoring platform</div>
+      <div class="hero-card__pulse" aria-hidden="true">
+        <svg viewBox="0 0 240 240">
+          <circle class="pulse-ring pulse-ring--1" cx="120" cy="120" r="40"></circle>
+          <circle class="pulse-ring pulse-ring--2" cx="120" cy="120" r="74"></circle>
+          <circle class="pulse-ring pulse-ring--3" cx="120" cy="120" r="108"></circle>
+          <circle class="pulse-core" cx="120" cy="120" r="6"></circle>
+        </svg>
+        <span class="hero-card__pulse-label">Always watching, never seen</span>
       </div>
     </aside>
   </div>
@@ -1238,19 +1176,19 @@
         <h2 class="headline headline--section reveal">Downtime Is Never Just a Screen Problem.</h2>
         <p class="subhead reveal" data-delay="2">When a room fails, the cost shows up everywhere except the AV line item.</p>
       </div>
-      <p class="section-note reveal" data-delay="3">These are widely cited industry figures, not IMS-specific results. They explain why reliability is a business issue, not just a technical one.</p>
+      <p class="section-note reveal" data-delay="3">These are widely cited meeting and AV industry figures, not IMS-specific results. They explain why room reliability is a business issue, not just a technical one.</p>
     </div>
-    <!-- Source check before publishing: Splunk/Oxford Economics, "The Hidden Costs of Downtime" (2024 Global 2000 report, $400B annual figure); ITIC, 2024 Hourly Cost of Downtime Survey (>90% of mid-size/large enterprises, $300K+/hour). Confirm current figures and citation language against the original reports prior to publication. -->
+    <!-- Source check before publishing: Owl Labs "State of Hybrid Work 2024" (share of workers reporting meetings delayed by tech/connection issues); industry surveys on minutes lost to AV setup per meeting (e.g. Barco ClickShare / collaboration-friction studies). Confirm current figures and citation language against the original reports prior to publication. -->
     <div class="insight-grid">
       <article class="insight-card reveal">
-        <p class="insight-card__figure">$400B+</p>
-        <p class="insight-card__label">Estimated annual cost of unplanned downtime to the world’s largest companies</p>
-        <p class="insight-card__desc">Independent industry research ties outages to lost revenue and productivity, not just repair time.</p>
+        <p class="insight-card__figure" data-count="72" data-suffix="%">72%</p>
+        <p class="insight-card__label">Of employees say meetings are regularly delayed by technology or connection problems</p>
+        <p class="insight-card__desc">Every late start is wasted executive time, lost momentum, and a room nobody trusts.</p>
       </article>
       <article class="insight-card reveal" data-delay="1">
-        <p class="insight-card__figure">90%+</p>
-        <p class="insight-card__label">Of mid-size and large enterprises report an hour of downtime can cost over $300,000</p>
-        <p class="insight-card__desc">One failed room during the wrong meeting can carry real financial weight, not just inconvenience.</p>
+        <p class="insight-card__figure" data-count="10" data-suffix=" min">10 min</p>
+        <p class="insight-card__label">Routinely lost at the start of meetings to AV setup, connecting, and screen-share trouble</p>
+        <p class="insight-card__desc">Multiply that across every room, every day, and the cost lands in payroll, not the AV invoice.</p>
       </article>
       <article class="insight-card insight-card--text reveal" data-delay="2">
         <p class="insight-card__quote">Reliability isn’t a convenience feature. It’s the difference between technology that supports the business and technology the business has to work around.</p>
