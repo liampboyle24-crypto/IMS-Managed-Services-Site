@@ -46,10 +46,11 @@ removed.
 
 | File | Plan status | Action |
 |---|---|---|
-| `hero.png` | ✅ slot 01 — in use | Wire into hero. |
-| `shift.png` | ✅ slot 04 — in use | Wire into shift section. |
+| `hero.png` | ✅ slot 01 — in use | Wired into the hero as a full-bleed right-column background, navy gradient overlay over the copy column. |
+| `shift.png` | ✅ slot 04 — in use | Wired as the `.operator-card` photo backdrop in `#shift`, dark scrim under the quote. |
 | `problem.png` | ⚠ uploaded, plan dropped the slot | Keep on branch as a fallback. Revisit during redesign — type-led may not carry the section alone. |
 | `reliability.png` | ⚠ uploaded, plan dropped the slot | Keep on branch as a fallback. Pair with the SVG strip chart only if the chart-only treatment reads too sparse. |
+| `uptime-stripe.svg` | ⚠ uploaded, not wired | A hand/AI-generated bar-chart SVG was uploaded for slot 03. The redesign pass used a hand-written inline `<svg>` instead (see `#reliability` in `index.html`) so the bars stay on the locked `var(--navy)`/`var(--gold)` tokens rather than the file's hardcoded hex (`#0A1F44`/`#F5C842`, close but not identical) and so it doesn't carry an opaque white background into the cream section. Kept on branch in case you'd rather swap it in directly. |
 
 ### Why each removal
 
