@@ -362,6 +362,7 @@
     color: var(--ink-on-gold);
     transition: transform .2s var(--ease-spring), background .2s var(--ease-fluid);
   }
+  .button__icon svg { width: 18px; height: 18px; display: block; }
   .button--primary:hover .button__icon { transform: translate(3px, -2px) scale(1.08); background: var(--gold-2); }
   .credential-strip {
     display: flex;
@@ -1781,12 +1782,12 @@
   }
   .outcome-card__mark::before { display: none; }
   .outcome-card__mark svg {
-    width: 42%;
-    height: 42%;
+    width: 56%;
+    height: 56%;
   }
   .outcome-card.reveal .outcome-card__check-path {
-    stroke-dasharray: 28;
-    stroke-dashoffset: 28;
+    stroke-dasharray: 70;
+    stroke-dashoffset: 70;
     transition: stroke-dashoffset .64s cubic-bezier(0.32, 0.72, 0, 1) .34s;
   }
   .outcome-card.reveal.is-visible .outcome-card__check-path { stroke-dashoffset: 0; }
@@ -1834,7 +1835,7 @@
       <h1 class="headline reveal" data-delay="3">Reliable collaboration starts <span class="headline--accent">before the meeting does</span>.</h1>
       <p class="tagline reveal" data-delay="4">A proactive managed services model that keeps every room ready before it’s needed, and accountable to leadership long after install day.</p>
       <div class="hero__actions reveal" data-delay="4">
-        <a class="button button--primary" href="#contact"><span>Talk to us</span><span class="button__icon" aria-hidden="true">&rarr;</span></a>
+        <a class="button button--primary" href="#contact"><span>Talk to us</span><span class="button__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span></a>
         <a class="button button--ghost" href="#architecture">See the model</a>
       </div>
       <div class="credential-strip reveal" data-delay="4" aria-label="IMS credentials">
@@ -2180,8 +2181,8 @@
         <p class="outcome-card__quote">A complete operating model that scales to any budget, backed by an accountable, single point of ownership.</p>
       </div>
       <div class="outcome-card__mark" aria-hidden="true">
-        <svg viewBox="0 0 48 48" fill="none">
-          <path class="outcome-card__check-path" d="M15 24.5L21.4 30.8L34 17.8" stroke="var(--gold)" stroke-width="3.4"></path>
+        <svg viewBox="0 0 24 24" fill="none">
+          <path class="outcome-card__check-path" d="M20 6 9 17l-5-5" stroke="var(--gold)" stroke-width="3.5"></path>
         </svg>
       </div>
     </aside>
@@ -2249,7 +2250,7 @@
       <p class="cta__sub reveal" data-delay="2">Liam Boyle · <a href="mailto:lboyle@imsts.com">lboyle@imsts.com</a> · IMS Technology Services</p>
       <p class="cta__decision reveal" data-delay="3">One conversation about where your AV stands today. A clear recommendation scoped to your environment. Zero obligation.</p>
       <div class="cta__actions reveal" data-delay="4">
-        <a class="button button--primary" href="mailto:lboyle@imsts.com"><span>lboyle@imsts.com</span><span class="button__icon" aria-hidden="true">&rarr;</span></a>
+        <a class="button button--primary" href="mailto:lboyle@imsts.com"><span>lboyle@imsts.com</span><span class="button__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span></a>
         <a class="button button--ghost" href="tel:+16103611870">Call 610-361-1870</a>
       </div>
       <p class="cta__footer reveal" data-delay="4">IMS Technology Services · imstechnologyservices.com</p>
