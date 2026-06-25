@@ -454,6 +454,40 @@
     line-height: 1.55;
   }
   .section--navy .section-note { border-color: var(--line-dark); color: #c5d0dd; background: rgba(255, 255, 255, .06); }
+  #failure-points .section-note {
+    align-self: start;
+    padding: clamp(22px, 2.4vw, 30px);
+    border: 1px solid rgba(113, 201, 242, .32);
+    border-radius: var(--radius-md);
+    background:
+      radial-gradient(140% 120% at 0% 0%, rgba(10, 110, 168, .30), transparent 60%),
+      linear-gradient(135deg, rgba(8, 56, 92, .55), rgba(8, 56, 92, .30));
+    color: var(--cream);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .10), 0 18px 50px rgba(7, 27, 52, .28);
+  }
+  #failure-points .section-note__lead {
+    display: block;
+    font-family: var(--font-sans);
+    font-weight: 800;
+    font-size: clamp(17px, 1.5vw, 21px);
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+    color: var(--white);
+    margin-bottom: 10px;
+    text-wrap: balance;
+  }
+  #failure-points .section-note__lead::before {
+    content: '';
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    margin-right: 11px;
+    border-radius: 50%;
+    background: var(--gold);
+    vertical-align: middle;
+    transform: translateY(-2px);
+    box-shadow: 0 0 0 4px rgba(236, 174, 61, .18);
+  }
 
   .timeline {
     position: relative;
@@ -590,7 +624,6 @@
     position: relative;
     isolation: isolate;
     overflow: clip;
-    min-height: 168vh;
   }
   .differentiator::before,
   .differentiator::after {
@@ -622,13 +655,6 @@
     grid-template-columns: minmax(0, 420px) 1fr;
     gap: clamp(30px, 5vw, 72px);
     align-items: center;
-    min-height: min(720px, 76vh);
-  }
-  @media (min-width: 1101px) {
-    .loop-panel {
-      position: sticky;
-      top: clamp(92px, 13vh, 140px);
-    }
   }
   .touchless-card {
     position: relative;
@@ -904,7 +930,7 @@
   }
   .differentiator__closer {
     max-width: 850px;
-    margin: 64px auto 0;
+    margin: clamp(72px, 8vw, 108px) auto 0;
     text-align: center;
     color: var(--slate);
     font-family: var(--font-sans);
@@ -1954,7 +1980,7 @@
 <section id="shift" class="section section--navy shift" data-section="Shift">
   <div class="shift__bg" aria-hidden="true" data-parallax="30"></div>
   <div class="container">
-    <h2 class="headline headline--section reveal">We Don’t Install AV. <span class="headline--accent">We Run It.</span></h2>
+    <h2 class="headline headline--section reveal">We Don’t Install AV.<br><span class="headline--accent">We Run It.</span></h2>
     <p class="subhead reveal" data-delay="2">A performance partnership, not a project handoff.</p>
     <p class="operator-copy reveal" data-delay="3">We keep people connected, IT focused on strategy, and technology accountable to the value it was bought to deliver.</p>
     <p class="shift-closer reveal" data-delay="3">That’s the difference between a vendor and an operator.</p>
@@ -1988,7 +2014,7 @@
         <h2 class="headline headline--section reveal">Most AV Failures Are Predictable. <span class="headline--accent">That’s the Point.</span></h2>
         <p class="subhead reveal" data-delay="2">The same handful of issues take down rooms again and again. In our model, each one has a defined owner.</p>
       </div>
-      <p class="section-note reveal" data-delay="3">Eight categories. Eight named responses. No grey area about who acts when something stops working.</p>
+      <p class="section-note reveal" data-delay="3"><strong class="section-note__lead">Eight categories. Eight named responses.</strong>No grey area about who acts when something stops working.</p>
     </div>
     <div class="bento-grid">
       <article class="bento-card reveal">
@@ -2364,15 +2390,18 @@
 
   const loopDiagram = document.querySelector('.loop-diagram');
   if (loopDiagram) {
-    const loopSection = loopDiagram.closest('.differentiator') || loopDiagram;
     const loopNodes = [...loopDiagram.querySelectorAll('.loop-node')];
     const loopRing = loopDiagram.querySelector('.loop-ring');
     const clamp = (value, min = 0, max = 1) => Math.min(max, Math.max(min, value));
     const getLoopProgress = () => {
       const vh = window.innerHeight || document.documentElement.clientHeight;
-      const rect = loopSection.getBoundingClientRect();
-      const travel = Math.max(rect.height - vh, vh * .72);
-      return clamp((-rect.top + vh * .08) / travel);
+      const rect = loopDiagram.getBoundingClientRect();
+      const center = rect.top + rect.height / 2;
+      // 0 as the diagram rises into view near the bottom of the viewport,
+      // 1 the moment its center reaches the vertical middle of the screen.
+      const startY = vh * 0.92;
+      const endY = vh * 0.5;
+      return clamp((startY - center) / (startY - endY));
     };
     const setLoopSpark = (progress) => {
       // SVG circle starts at 3 o'clock, so subtract 90deg to anchor the sweep at Monitor.
