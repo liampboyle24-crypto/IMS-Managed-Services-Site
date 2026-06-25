@@ -454,7 +454,7 @@
     line-height: 1.55;
   }
   .section--navy .section-note { border-color: var(--line-dark); color: #c5d0dd; background: rgba(255, 255, 255, .06); }
-  #failure-points .section-note {
+  .section-note--key {
     align-self: start;
     padding: clamp(22px, 2.4vw, 30px);
     border: 1px solid rgba(113, 201, 242, .32);
@@ -465,7 +465,7 @@
     color: var(--cream);
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, .10), 0 18px 50px rgba(7, 27, 52, .28);
   }
-  #failure-points .section-note__lead {
+  .section-note--key .section-note__lead {
     display: block;
     font-family: var(--font-sans);
     font-weight: 800;
@@ -476,7 +476,7 @@
     margin-bottom: 10px;
     text-wrap: balance;
   }
-  #failure-points .section-note__lead::before {
+  .section-note--key .section-note__lead::before {
     content: '';
     display: inline-block;
     width: 7px;
@@ -2014,7 +2014,7 @@
         <h2 class="headline headline--section reveal">Most AV Failures Are Predictable. <span class="headline--accent">That’s the Point.</span></h2>
         <p class="subhead reveal" data-delay="2">The same handful of issues take down rooms again and again. In our model, each one has a defined owner.</p>
       </div>
-      <p class="section-note reveal" data-delay="3"><strong class="section-note__lead">Eight categories. Eight named responses.</strong>No grey area about who acts when something stops working.</p>
+      <p class="section-note section-note--key reveal" data-delay="3"><strong class="section-note__lead">Eight categories. Eight named responses.</strong>No grey area about who acts when something stops working.</p>
     </div>
     <div class="bento-grid">
       <article class="bento-card reveal">
@@ -2131,9 +2131,8 @@
         <h2 class="headline headline--section reveal">Four Pillars. <span class="headline--accent">One Accountable Model.</span></h2>
         <p class="subhead reveal" data-delay="2">Each pillar solves a different problem leadership actually has.</p>
       </div>
-      <p class="section-note reveal" data-delay="3">Sized to fit, not sized to sell. A five-room office gets the same operating discipline as a 500-room enterprise, just scoped to its budget.</p>
+      <p class="section-note section-note--key reveal" data-delay="3"><strong class="section-note__lead">Sized to fit, not sized to sell.</strong>A five-room office gets the same operating discipline as a 500-room enterprise, just scoped to its budget.</p>
     </div>
-    <p class="body-copy reveal" data-delay="3">CapEx, hybrid AVaaS, full AV-as-a-Service, or embedded staff. One owner, one model, one standard of accountability.</p>
     <div class="pillar-grid">
       <article class="pillar-card reveal" data-delay="1">
         <div class="pillar-card__icon" aria-hidden="true">
