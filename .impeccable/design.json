@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-25T13:16:29Z",
+  "title": "Design System: IMS Managed Services Platform",
+  "extensions": {
+    "colorMeta": {
+      "navy-deep": { "role": "primary", "displayName": "Deep Navy", "canonical": "oklch(29.5% 0.087 251.6)", "tonalRamp": ["#00072e", "#00254d", "#19446e", "#3a6491", "#5a86b5", "#7ca9da", "#a0ceff", "#c4f3ff"] },
+      "navy-night": { "role": "primary", "displayName": "Navy Night", "canonical": "oklch(20.5% 0.057 249.5)", "tonalRamp": ["#000b22", "#0b2640", "#29445f", "#486481", "#6885a4", "#8aa8c8", "#adcdee", "#d2f2ff"] },
+      "ink": { "role": "neutral", "displayName": "Ink", "canonical": "oklch(24.1% 0.063 257.7)", "tonalRamp": ["#000925", "#102543", "#2c4363", "#4a6285", "#6b84a9", "#8ca7cd", "#b0cbf3", "#d4f1ff"] },
+      "signal-teal": { "role": "secondary", "displayName": "Signal Teal", "canonical": "oklch(51.7% 0.122 243.1)", "tonalRamp": ["#000339", "#00255a", "#00467d", "#0067a0", "#3389c5", "#59adeb", "#7ed2ff", "#a4f8ff"] },
+      "signal-teal-bright": { "role": "secondary", "displayName": "Bright Signal", "canonical": "oklch(79.6% 0.103 230.0)", "tonalRamp": ["#000c2d", "#002b4c", "#004a6d", "#006b90", "#318db4", "#58b1d9", "#7ed6ff", "#a3fcff"] },
+      "precision-gold": { "role": "tertiary", "displayName": "Precision Gold", "canonical": "oklch(79.0% 0.143 78.4)", "tonalRamp": ["#270000", "#471100", "#693200", "#8c5300", "#b07500", "#d5981d", "#fbbd4e", "#ffe277"] },
+      "precision-gold-soft": { "role": "tertiary", "displayName": "Soft Gold", "canonical": "oklch(86.2% 0.110 82.8)", "tonalRamp": ["#1f0000", "#3e1b00", "#5e3a00", "#7f5a00", "#a27b26", "#c79e4d", "#ecc372", "#ffe897"] },
+      "slate": { "role": "neutral", "displayName": "Slate", "canonical": "oklch(47.1% 0.034 250.1)", "tonalRamp": ["#020c19", "#182635", "#344454", "#536374", "#738496", "#96a7ba", "#b9cbdf", "#def1ff"] },
+      "muted-steel": { "role": "neutral", "displayName": "Muted Steel", "canonical": "oklch(52.1% 0.034 251.5)", "tonalRamp": ["#020c19", "#182635", "#354354", "#536375", "#748497", "#96a7bb", "#b9cbe0", "#def1ff"] },
+      "instrument-mist": { "role": "neutral", "displayName": "Instrument Mist", "canonical": "oklch(95.7% 0.005 247.9)", "tonalRamp": ["#090b0d", "#232527", "#404245", "#5f6164", "#808385", "#a2a5a8", "#c6c9cc", "#eceff2"] },
+      "instrument-mist-deep": { "role": "neutral", "displayName": "Mist, Deeper", "canonical": "oklch(92.5% 0.008 241.7)", "tonalRamp": ["#080c0e", "#222628", "#3f4346", "#5e6265", "#7e8387", "#a1a6a9", "#c5cace", "#eaeff3"] },
+      "paper": { "role": "neutral", "displayName": "Paper", "canonical": "oklch(100.0% 0.000 89.9)", "tonalRamp": ["#0b0b0b", "#252525", "#424242", "#616161", "#828282", "#a5a5a5", "#c9c9c9", "#eeeeee"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero headline only, one per page." },
+      "headline": { "displayName": "Headline", "purpose": "Section-opening headlines." },
+      "subhead": { "displayName": "Subhead", "purpose": "The 'editorial voice' role — secondary line under a section headline, still set in Archivo." },
+      "body": { "displayName": "Body", "purpose": "Running copy, capped near a 75ch measure." },
+      "label": { "displayName": "Label", "purpose": "The 'technical voice' role — eyebrows, nav labels, mono-styled meta text. Always uppercase, always small." }
+    },
+    "shadows": [
+      { "name": "ambient", "value": "0 24px 80px rgba(7, 27, 52, .12)", "purpose": "Default resting elevation for light-surface cards. Large blur, very low opacity, no hard edge." },
+      { "name": "card", "value": "0 18px 50px rgba(7, 27, 52, .24)", "purpose": "More present version of ambient for surfaces needing clearer separation (stat panels, proof cards)." },
+      { "name": "sheen", "value": "inset 0 1px 0 rgba(255, 255, 255, .85)", "purpose": "One-pixel inset top highlight simulating a single light source from above on light circular/panel elements." },
+      { "name": "signal-glow-teal", "value": "0 0 0 8px rgba(113, 201, 242, .20), 0 0 32px rgba(10, 110, 168, .50)", "purpose": "Concentric pulse glow reserved for live/monitored motifs — the operating-loop diagram, status dots. Never generic decoration." },
+      { "name": "signal-glow-gold", "value": "0 0 0 4px rgba(236, 174, 61, .18)", "purpose": "Rare gold variant of the signal glow, used on a single status dot." }
+    ],
+    "motion": [
+      { "name": "ease-fluid", "value": "cubic-bezier(.16, 1, .3, 1)", "purpose": "Default easing for hover/state transitions across the page." },
+      { "name": "ease-out-strong", "value": "cubic-bezier(0.23, 1, 0.32, 1)", "purpose": "Button lift and primary interactive transforms." },
+      { "name": "ease-in-out-strong", "value": "cubic-bezier(0.77, 0, 0.175, 1)", "purpose": "Larger choreographed transitions (panel/section level)." },
+      { "name": "ease-drawer", "value": "cubic-bezier(0.32, 0.72, 0, 1)", "purpose": "Hero photo settle-in animation on load." },
+      { "name": "ease-spring", "value": "cubic-bezier(.34, 1.56, .64, 1)", "purpose": "Overshoot curve reserved for a small, closed set of micro hover-nudges (button icon, loop-node dot, bento arrow). Do not extend to new components — see DESIGN.md Don'ts." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "760px" },
+      { "name": "md", "value": "1100px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The page's single conversion action. Always resolves to #contact.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#contact\"><span>Talk to us</span><span class=\"ds-btn-primary__icon\" aria-hidden=\"true\">&rarr;</span></a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 12px; min-height: 52px; border-radius: 999px; padding: 15px 22px; background: var(--navy); color: var(--cream); font-weight: 850; text-decoration: none; box-shadow: 0 14px 36px rgba(7, 27, 52, .22); transition: transform .15s var(--ease-out-strong), box-shadow .2s var(--ease-out-strong); } .ds-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 18px 46px rgba(7, 27, 52, .30); } .ds-btn-primary:active { transform: translateY(-1px) scale(.97); } .ds-btn-primary:focus-visible { outline: 2px solid var(--teal-2); outline-offset: 3px; } .ds-btn-primary__icon { display: inline-grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: rgba(255, 255, 255, .14); }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary, exploratory action — never the primary conversion path.",
+      "html": "<a class=\"ds-btn-ghost\" href=\"#architecture\">See the model</a>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; min-height: 52px; border-radius: 999px; padding: 15px 22px; border: 1px solid var(--line-light); color: var(--navy); background: rgba(255, 255, 255, .36); text-decoration: none; font-weight: 850; transition: transform .15s var(--ease-out-strong); } .ds-btn-ghost:hover { transform: translateY(-2px); } .ds-btn-ghost:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }"
+    },
+    {
+      "name": "Navigation Bar",
+      "kind": "nav",
+      "refersTo": "nav-cta",
+      "description": "Fixed pill-link nav with a brand mark and a persistent CTA that survives every breakpoint.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav__brand\" href=\"#top\">IMS</a><div class=\"ds-nav__links\"><a href=\"#problem\" class=\"is-active\">Problem</a><a href=\"#shift\">Shift</a></div><a class=\"ds-nav__cta\" href=\"#contact\">Contact Us</a></nav>",
+      "css": ".ds-nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 22px; } .ds-nav__brand { font-weight: 800; color: var(--navy); text-decoration: none; } .ds-nav__links { display: flex; gap: 4px; } .ds-nav__links a { padding: 9px 11px; border-radius: 999px; color: var(--ink); text-decoration: none; font-size: 14px; transition: color .2s var(--ease-fluid), background .2s var(--ease-fluid); } .ds-nav__links a:hover, .ds-nav__links a.is-active { color: var(--navy); background: rgba(10, 110, 168, .12); } .ds-nav__cta { border-radius: 999px; background: var(--navy); color: var(--cream); padding: 10px 14px; text-decoration: none; font-size: 12px; font-weight: 800; box-shadow: 0 8px 22px rgba(7, 27, 52, .20); } .ds-nav__cta:focus-visible { outline: 2px solid var(--teal-2); outline-offset: 2px; }"
+    },
+    {
+      "name": "Card, Light",
+      "kind": "card",
+      "refersTo": "card-surface",
+      "description": "Structural panel on light/cream sections. Sharp 3px radius, ambient shadow, tinted hairline border.",
+      "html": "<div class=\"ds-card\"><p class=\"ds-card__label\">Outcome</p><p class=\"ds-card__title\">Mean time to resolution drops when issues are caught before the meeting starts.</p></div>",
+      "css": ".ds-card { background: var(--paper); color: var(--ink); border-radius: 3px; border: 1px solid var(--line-light); padding: 28px; box-shadow: 0 24px 80px rgba(7, 27, 52, .12); transition: box-shadow .2s var(--ease-fluid); } .ds-card:hover { box-shadow: 0 30px 70px rgba(7, 27, 52, .16); } .ds-card__label { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--teal); } .ds-card__title { margin-top: 14px; font-weight: 700; line-height: 1.4; }"
+    },
+    {
+      "name": "Card, Navy",
+      "kind": "card",
+      "refersTo": "card-surface-navy",
+      "description": "Structural panel on dark sections. Same sharp radius, deeper card shadow, on-navy type color.",
+      "html": "<div class=\"ds-card-navy\"><p class=\"ds-card-navy__label\">Pillar</p><p class=\"ds-card-navy__title\">Monitor, detect, resolve — before it becomes a ticket.</p></div>",
+      "css": ".ds-card-navy { background: linear-gradient(165deg, var(--navy), var(--navy-2) 78%); color: var(--cream); border-radius: 3px; padding: 28px; box-shadow: 0 18px 50px rgba(7, 27, 52, .24); } .ds-card-navy__label { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--teal-2); } .ds-card-navy__title { margin-top: 14px; font-weight: 800; line-height: 1.3; }"
+    },
+    {
+      "name": "Eyebrow Label",
+      "kind": "chip",
+      "refersTo": "label",
+      "description": "The system's 'technical voice' — small, wide-tracked, uppercase, always Signal Teal.",
+      "html": "<p class=\"ds-eyebrow\">Managed Services</p>",
+      "css": ".ds-eyebrow { display: inline-flex; align-items: center; font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--teal); }"
+    },
+    {
+      "name": "Live Signal",
+      "kind": "custom",
+      "refersTo": "signal-glow-teal",
+      "description": "The system's one signature device — a pulsing status dot used only where something is genuinely live or monitored.",
+      "html": "<span class=\"ds-signal\"><span class=\"ds-signal__dot\" aria-hidden=\"true\"></span>Live</span>",
+      "css": ".ds-signal { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--teal); } .ds-signal__dot { width: 8px; height: 8px; border-radius: 50%; background: var(--teal-2); box-shadow: 0 0 0 4px rgba(113, 201, 242, .20), 0 0 16px rgba(10, 110, 168, .50); animation: ds-pulse 2.2s var(--ease-fluid) infinite; } @keyframes ds-pulse { 0%, 100% { opacity: 1; } 50% { opacity: .55; } } @media (prefers-reduced-motion: reduce) { .ds-signal__dot { animation: none; } }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Operator's Blueprint",
+    "overview": "PRODUCT.md states the core positioning in three words: \"Operator, not vendor.\" This system takes that literally rather than figuratively. The page is built like a piece of operational equipment, not a brochure: a faint schematic grid sits under every navy section, structural panels close to square (2–3px radius) rather than softly rounded, a single typeface carries every register from hero display down to technical micro-labels, and the one recurring decorative motif — concentric pulse rings — is a literal monitoring signal, not an abstract flourish.\n\nThe voice is vigilant rather than enthusiastic. Color is committed, not restrained-by-default — navy carries most of the page, Signal Teal carries everyday interactivity and live-state feedback, and Precision Gold is spent on almost nothing, which is exactly why it reads as valuable when it appears. This system explicitly rejects generic AI-generated visuals, gradient-and-glassmorphism-as-default, fake metrics or unsupported claims, bloated dependencies, and trend-chasing decoration that will date the page in a year.",
+    "keyCharacteristics": [
+      "A single typeface (Archivo) plays every role — display, body, and mono-style technical label — through weight and tracking alone.",
+      "Color strategy is Committed: Deep Navy is the dominant surface and text color across the page, not a 10%-restrained accent.",
+      "Precision Gold is the rarest color on the page by design — spent on single moments of proof, never on chrome.",
+      "Depth comes from soft, large-blur ambient shadows and a one-pixel top highlight, not hard drop shadows.",
+      "The only repeating decorative device is the signal/pulse ring — and it always means \"this is live,\" never \"this is decoration.\"",
+      "Shape is tiered by function: sharp for structure, full pill for action, soft tile for icons, true circle for status."
+    ],
+    "rules": [
+      { "name": "The Rare Gold Rule", "body": "Precision Gold is budgeted, not decorative — it appears at most once or twice per section, always on a number or a status signal, never on UI chrome, links, or body accents.", "section": "colors" },
+      { "name": "The Tinted Hairline Rule", "body": "Borders and dividers are never a flat gray. Every line on the page is a low-alpha tint of Ink (on light surfaces) or Instrument Mist (on dark surfaces).", "section": "colors" },
+      { "name": "The One Family Rule", "body": "Every register — display, body, and the mono-styled technical label — renders in Archivo. The system never reaches for a second typeface to manufacture \"editorial\" contrast.", "section": "typography" },
+      { "name": "The Negative-Three Floor", "body": "No heading exceeds -0.03em letter-spacing. Tighter than that and large type starts touching itself instead of reading as designed.", "section": "typography" },
+      { "name": "The Ambient-Not-Hard Rule", "body": "Elevation reads through large-blur, low-opacity shadows and a one-pixel top sheen — never a tight, dark, high-opacity drop shadow.", "section": "elevation" },
+      { "name": "The Signal-Glow Exception", "body": "Concentric ring glows in Signal Teal or Precision Gold mean one thing only: this is being monitored right now. They belong on the pulse diagram and status dots, not on cards, buttons, or unrelated hover states.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep Deep Navy (#002D56) as the dominant surface/text color; it is the system's base register, not an accent to be restrained.",
+      "Do spend Precision Gold (#ECAE3D) on at most one or two moments per section — a stat figure, a status glow — per the Rare Gold Rule.",
+      "Do render every register (display, body, technical label) in Archivo via weight/size/tracking/case changes, per the One Family Rule.",
+      "Do keep structural panels at the 2–3px \"drafting precision\" radius, full pills (999px) for every interactive control, and true circles for status/signal elements — never mix the three.",
+      "Do route the dominant, filled primary button to #contact; reserve the ghost/secondary button for exploratory in-page destinations.",
+      "Do use only translucent tints of Ink or Instrument Mist for borders and dividers (Tinted Hairline Rule) — never a flat gray stroke.",
+      "Do reserve the concentric Signal-Glow rings for things that are actually live or monitored (Signal-Glow Exception).",
+      "Do ship every new animated element with a prefers-reduced-motion: reduce alternative, matching the coverage already present site-wide."
+    ],
+    "donts": [
+      "Don't introduce gradients or glassmorphism as a default surface treatment — backdrop-filter: blur() exists on a small, closed set of components; do not extend it to new components.",
+      "Don't add a tiny uppercase tracked eyebrow above every section as default scaffolding, or stamp 01/02/03 numbering onto cards that are parallel claims rather than a real sequence.",
+      "Don't fabricate metrics, certifications, awards, or client names. Every figure and credential on the page must already exist in approved source copy.",
+      "Don't add a second typeface for \"editorial\" contrast. The One Family Rule exists precisely so nobody reaches for a serif or a mono webfont to signal sophistication.",
+      "Don't use a hard, tight, dark drop shadow anywhere. If a shadow needs more presence, reach for the Card shadow, not a harder one.",
+      "Don't let the spring/overshoot easing spread beyond the handful of small hover-icon nudges it already drives.",
+      "Don't add bloated dependencies or a build step. This is a single static index.html; every new pattern must work as plain CSS/JS dropped into that one file.",
+      "Don't chase a design trend that will date the page in a year — this system is built to still look correct in five."
+    ]
+  }
+}
